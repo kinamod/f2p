@@ -1,8 +1,6 @@
 'use client';
 
 import '@/builder-registry';
-import EstatesGallery from '@/components/EstatesGallery/EstatesGallery';
-import EventCard from '@/components/EventCard/EventCard';
 
 export default function Home() {
   return (
@@ -12,54 +10,7 @@ export default function Home() {
         <p>A storybook of reusable components</p>
       </div>
 
-      <div className="showcase-container">
-        <div className="showcase-section">
-          <div className="showcase-section-header">
-            <h2>Event Card</h2>
-            <p className="showcase-section-description">
-              A flexible event card component that displays event information with an image, details, and call-to-action
-            </p>
-          </div>
-          <div className="showcase-component-wrapper showcase-event-grid">
-            <EventCard
-              title="Mental Health Workshop"
-              date="February 28, 2024"
-              time="2:00 PM - 4:00 PM"
-              location="Virtual Event"
-              description="A practical workshop exploring mental health awareness and coping strategies for retail professionals."
-              imageUrl="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop"
-              imageAlt="Workshop participants in discussion"
-              ctaText="Learn More"
-              ctaLink="#workshop"
-              category="Workshop"
-            />
-            <EventCard
-              title="Community Support Fair"
-              date="March 5, 2024"
-              time="10:00 AM - 2:00 PM"
-              location="Various Locations"
-              description="Meet with our support teams and local community partners. Free resources and consultations available."
-              imageUrl="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop"
-              imageAlt="Community fair booth"
-              ctaText="Find a Location"
-              ctaLink="#locations"
-              category="Community"
-            />
-          </div>
-        </div>
-
-        <div className="showcase-section">
-          <div className="showcase-section-header">
-            <h2>Estates Gallery</h2>
-            <p className="showcase-section-description">
-              A horizontal scrollable gallery showcasing supported living estates with images and titles
-            </p>
-          </div>
-          <div className="showcase-component-wrapper">
-            <EstatesGallery />
-          </div>
-        </div>
-      </div>
+      <div className="showcase-container"></div>
 
       <style jsx>{`
         .showcase-header {
