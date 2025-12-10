@@ -3,6 +3,7 @@
 import '@/builder-registry';
 import EstatesGallery from '@/components/EstatesGallery/EstatesGallery';
 import RetailTrustHeader from '@/components/RetailTrustHeader/RetailTrustHeader';
+import EventCard from '@/components/EventCard/EventCard';
 
 export default function Home() {
   return (
