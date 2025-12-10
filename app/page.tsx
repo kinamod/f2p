@@ -35,18 +35,6 @@ export default function Home() {
           </div>
           <div className="showcase-component-wrapper showcase-event-grid">
             <EventCard
-              title="Annual Wellbeing Conference 2024"
-              date="March 15, 2024"
-              time="9:00 AM - 5:00 PM"
-              location="London Convention Centre"
-              description="Join us for our flagship annual conference featuring industry experts, networking opportunities, and practical workshops on retail employee wellbeing."
-              imageUrl="https://images.unsplash.com/photo-1540575467063-178f50002cbc?w=500&h=300&fit=crop"
-              imageAlt="Conference hall with attendees"
-              ctaText="Register Now"
-              ctaLink="#register"
-              category="Conference"
-            />
-            <EventCard
               title="Mental Health Workshop"
               date="February 28, 2024"
               time="2:00 PM - 4:00 PM"
