@@ -188,6 +188,18 @@ function EstatesCarousel({
           </ul>
         </div>
       </div>
+
+      <div className={styles.paginationDots}>
+        {estates.map((_, idx) => (
+          <button
+            key={idx}
+            className={`${styles.dot} ${currentPage === idx ? styles.activeDot : ""}`}
+            onClick={() => goToPage(idx)}
+            aria-label={`Go to slide ${idx + 1}`}
+            aria-current={currentPage === idx}
+          />
+        ))}
+      </div>
     </div>
   );
 }
