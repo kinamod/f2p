@@ -106,25 +106,12 @@
   overflow-x: auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
-  padding-bottom: 12px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .carouselList::-webkit-scrollbar {
-  height: 8px;
-}
-
-.carouselList::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 4px;
-}
-
-.carouselList::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-}
-
-.carouselList::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.3);
+  display: none;
 }
 
 .carouselItem {
