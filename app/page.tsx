@@ -99,6 +99,13 @@ export default function Home() {
           overflow: visible;
         }
 
+        .showcase-header-wrapper {
+          background: transparent;
+          box-shadow: none;
+          border-radius: 0;
+          overflow: visible;
+        }
+
         .showcase-footer-wrapper {
           background: transparent;
           box-shadow: none;
