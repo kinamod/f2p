@@ -1,0 +1,304 @@
+.galleryContainer {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.headerSection {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 23px;
+}
+
+.headerTitle {
+  width: auto;
+  flex: 1;
+}
+
+.title {
+  border-color: rgb(53, 54, 54);
+  color: rgb(53, 54, 54);
+  font-size: 41.056px;
+  letter-spacing: -0.41056px;
+  line-height: 46.192px;
+  margin: 0;
+  outline-color: rgb(53, 54, 54);
+  text-decoration-color: rgb(53, 54, 54);
+  text-emphasis-color: rgb(53, 54, 54);
+  word-break: break-word;
+}
+
+.titleLink {
+  border-color: rgb(106, 151, 207);
+  color: rgb(106, 151, 207);
+  cursor: pointer;
+  display: inline;
+  font-size: 41.056px;
+  letter-spacing: -0.41056px;
+  line-height: 46.192px;
+  outline-color: rgb(106, 151, 207);
+  text-decoration: none;
+  text-decoration-color: rgb(106, 151, 207);
+  text-emphasis-color: rgb(106, 151, 207);
+  word-break: break-word;
+}
+
+.titleLink:hover {
+  text-decoration: underline;
+}
+
+.navigationControls {
+  border-radius: 20px;
+  display: flex;
+  gap: 15px;
+  padding: 6px;
+  margin: 0;
+  list-style: none;
+  align-items: center;
+}
+
+.prevButton,
+.nextButton {
+  background-image: url("https://www.retailtrust.org.uk/magazine/dest/graphics/output/sprite.css-f6f504ae.svg");
+  background-repeat: no-repeat;
+  display: inline-block;
+  font-size: 18px;
+  height: 30px;
+  line-height: 28.832px;
+  width: 30px;
+  margin: 0;
+}
+
+.prevButton {
+  background-position: -402px -468px;
+  cursor: default;
+  pointer-events: none;
+}
+
+.nextButton {
+  background-position: -462px -468px;
+  cursor: pointer;
+}
+
+.screenReaderText {
+  clip: rect(1px, 1px, 1px, 1px);
+  cursor: default;
+  font-size: 18px;
+  height: 1px;
+  line-height: 28.832px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+.galleryWrapper {
+  clear: both;
+  margin-left: -8px;
+  margin-right: -8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.galleryContent {
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.estatesList {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+}
+
+.estateItem {
+  align-items: flex-start;
+  display: flex;
+  line-height: 28.832px;
+  position: relative;
+  width: 270px;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.estateCard {
+  height: 100%;
+  line-height: 28.832px;
+  padding: 8px;
+  width: 100%;
+}
+
+.estateCardContent {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(220, 220, 220);
+  height: 100%;
+  line-height: 28.832px;
+}
+
+.imageContainer {
+  line-height: 28.832px;
+  margin-bottom: 16px;
+}
+
+.imageLink {
+  background-color: rgb(220, 220, 220);
+  border-color: rgb(106, 151, 207);
+  color: rgb(106, 151, 207);
+  cursor: pointer;
+  display: block;
+  height: 0;
+  line-height: 28.832px;
+  outline-color: rgb(106, 151, 207);
+  overflow: hidden;
+  padding-bottom: 66.4%;
+  position: relative;
+  text-decoration: none;
+  text-decoration-color: rgb(106, 151, 207);
+  text-emphasis-color: rgb(106, 151, 207);
+}
+
+.estateImage {
+  border-color: rgb(106, 151, 207);
+  color: rgb(106, 151, 207);
+  cursor: pointer;
+  line-height: 28.832px;
+  max-width: 100%;
+  outline-color: rgb(106, 151, 207);
+  overflow: clip;
+  text-decoration-color: rgb(106, 151, 207);
+  text-emphasis-color: rgb(106, 151, 207);
+  transition: opacity 0.3s;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  object-fit: cover;
+}
+
+.titleContainer {
+  line-height: 28.832px;
+  padding: 20px;
+}
+
+.estateName {
+  border-color: rgb(53, 54, 54);
+  color: rgb(53, 54, 54);
+  font-size: 22.784px;
+  letter-spacing: -0.34176px;
+  line-height: 28.832px;
+  margin: 0 0 8px 0;
+  outline-color: rgb(53, 54, 54);
+  text-decoration-color: rgb(53, 54, 54);
+  text-emphasis-color: rgb(53, 54, 54);
+}
+
+.estateLink {
+  border-color: rgb(53, 54, 54);
+  color: rgb(53, 54, 54);
+  cursor: pointer;
+  display: -webkit-box;
+  font-family: Nexa-Black, arial, sans-serif;
+  font-size: 22.784px;
+  letter-spacing: -0.34176px;
+  line-height: 28.832px;
+  outline-color: rgb(53, 54, 54);
+  overflow: hidden;
+  text-decoration: none;
+  text-decoration-color: rgb(53, 54, 54);
+  text-emphasis-color: rgb(53, 54, 54);
+  word-break: break-word;
+  -webkit-line-clamp: 2;
+}
+
+.estateLink:hover {
+  text-decoration: underline;
+}
+
+.ariaLive {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+    line-height: 32px;
+    letter-spacing: -0.28px;
+    margin-bottom: 16px;
+  }
+
+  .titleLink {
+    font-size: 28px;
+    line-height: 32px;
+    letter-spacing: -0.28px;
+  }
+
+  .headerSection {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .estateItem {
+    width: 240px;
+  }
+
+  .estateName {
+    font-size: 18px;
+    letter-spacing: -0.27px;
+    line-height: 24px;
+  }
+
+  .estateLink {
+    font-size: 18px;
+    letter-spacing: -0.27px;
+    line-height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -0.24px;
+  }
+
+  .titleLink {
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -0.24px;
+  }
+
+  .navigationControls {
+    gap: 10px;
+  }
+
+  .estateItem {
+    width: 200px;
+  }
+
+  .estateName {
+    font-size: 16px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+  }
+
+  .estateLink {
+    font-size: 16px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+  }
+
+  .titleContainer {
+    padding: 16px;
+  }
+}
