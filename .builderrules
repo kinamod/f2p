@@ -1,0 +1,55 @@
+# Builder Rules
+
+This project is used to create custom components for Builder.io publishing.
+
+## Default Component Behavior
+
+Unless explicitly stated otherwise, the following rules apply to all components:
+
+### 1. Showcase Display
+Every new component must be added to and displayed in the **Product Showcase** (`app/page.tsx`):
+- Add the component to the showcase grid/layout
+- Include a section header with the component name
+- Provide a description of what the component does
+- Display the component with appropriate props/configuration
+
+### 2. Builder Registry
+Every new component must be registered in **`builder-registry.ts`**:
+- Import the component
+- Register it with `Builder.registerComponent()`
+- Define all relevant input props in the component configuration
+- Ensure the component is available for use in Builder.io CMS
+
+### 3. Component Structure
+- Create components in the `components/` directory
+- Use TypeScript with proper typing
+- Export components as default exports
+- Include a `styles.module.css` file for CSS Modules-based styling
+- Follow existing component patterns in the codebase
+
+## Overriding Default Behavior
+
+If you explicitly state that a component should **NOT** follow these rules, it can be:
+- Created without being added to the showcase
+- Created without being registered in the builder registry
+- Created as a utility or internal component not exposed to Builder.io
+
+Always make this clear in your request by saying something like:
+- "Don't add this to the showcase"
+- "Don't register this in builder-registry"
+- "This is an internal utility component"
+
+## Example
+
+When requesting a new component:
+
+Create a new Button component
+```
+
+This will result in:
+1. A new `components/Button/Button.tsx` file
+2. A new `components/Button/styles.module.css` file
+3. Registration in `builder-registry.ts`
+4. Addition to the showcase in `app/page.tsx`
+
+Unless you specify otherwise.
