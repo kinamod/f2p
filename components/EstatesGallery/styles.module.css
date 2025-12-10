@@ -223,35 +223,6 @@
   text-decoration: underline;
 }
 
-.paginationDots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin-top: 24px;
-  padding: 0;
-}
-
-.dot {
-  appearance: none;
-  border: none;
-  background-color: rgba(106, 151, 207, 0.3);
-  border-radius: 50%;
-  width: 10px;
-  height: 10px;
-  padding: 0;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.dot:hover {
-  background-color: rgba(106, 151, 207, 0.6);
-}
-
-.activeDot {
-  background-color: rgb(106, 151, 207);
-}
-
 @media (max-width: 768px) {
   .heading {
     font-size: 28px;
