@@ -59,11 +59,9 @@ function EstatesCarousel({
 }: EstatesCarouselProps) {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [maxScroll, setMaxScroll] = useState(0);
-  const [currentPage, setCurrentPage] = useState(0);
   const carouselRef = React.useRef<HTMLUListElement>(null);
 
   const itemWidth = 270 + 16; // card width + gap
-  const totalPages = estates.length;
 
   const updateMaxScroll = () => {
     if (!carouselRef.current) return;
