@@ -8,7 +8,7 @@
   flex-direction: column;
   height: 100%;
   position: relative;
-  border: 1px solid #e8f0f8;
+  border: 1px solid rgb(232, 240, 248);
 }
 
 .card:hover {
