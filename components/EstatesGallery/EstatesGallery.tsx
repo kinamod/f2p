@@ -82,18 +82,6 @@ function EstatesCarousel({
         ? Math.min(scrollPosition + itemWidth, maxScroll)
         : Math.max(0, scrollPosition - itemWidth);
     setScrollPosition(newPosition);
-    setCurrentPage(Math.round(newPosition / itemWidth));
-    carouselRef.current.scrollTo({
-      left: newPosition,
-      behavior: "smooth",
-    });
-  };
-
-  const goToPage = (pageIndex: number) => {
-    if (!carouselRef.current) return;
-    const newPosition = Math.min(pageIndex * itemWidth, maxScroll);
-    setScrollPosition(newPosition);
-    setCurrentPage(pageIndex);
     carouselRef.current.scrollTo({
       left: newPosition,
       behavior: "smooth",
