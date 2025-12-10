@@ -28,6 +28,54 @@ export default function Home() {
 
         <div className="showcase-section">
           <div className="showcase-section-header">
+            <h2>Event Card</h2>
+            <p className="showcase-section-description">
+              A flexible event card component that displays event information with an image, details, and call-to-action
+            </p>
+          </div>
+          <div className="showcase-component-wrapper showcase-event-grid">
+            <EventCard
+              title="Annual Wellbeing Conference 2024"
+              date="March 15, 2024"
+              time="9:00 AM - 5:00 PM"
+              location="London Convention Centre"
+              description="Join us for our flagship annual conference featuring industry experts, networking opportunities, and practical workshops on retail employee wellbeing."
+              imageUrl="https://images.unsplash.com/photo-1540575467063-178f50002cbc?w=500&h=300&fit=crop"
+              imageAlt="Conference hall with attendees"
+              ctaText="Register Now"
+              ctaLink="#register"
+              category="Conference"
+              featured={true}
+            />
+            <EventCard
+              title="Mental Health Workshop"
+              date="February 28, 2024"
+              time="2:00 PM - 4:00 PM"
+              location="Virtual Event"
+              description="A practical workshop exploring mental health awareness and coping strategies for retail professionals."
+              imageUrl="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop"
+              imageAlt="Workshop participants in discussion"
+              ctaText="Learn More"
+              ctaLink="#workshop"
+              category="Workshop"
+            />
+            <EventCard
+              title="Community Support Fair"
+              date="March 5, 2024"
+              time="10:00 AM - 2:00 PM"
+              location="Various Locations"
+              description="Meet with our support teams and local community partners. Free resources and consultations available."
+              imageUrl="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop"
+              imageAlt="Community fair booth"
+              ctaText="Find a Location"
+              ctaLink="#locations"
+              category="Community"
+            />
+          </div>
+        </div>
+
+        <div className="showcase-section">
+          <div className="showcase-section-header">
             <h2>Estates Gallery</h2>
             <p className="showcase-section-description">
               A horizontal scrollable gallery showcasing supported living estates with images and titles
