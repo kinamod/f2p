@@ -1,0 +1,357 @@
+.header {
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  z-index: 50;
+}
+
+.nav {
+  align-items: center;
+  display: flex;
+  height: 72px;
+  justify-content: space-between;
+  margin: 0 32px;
+  max-width: 1120px;
+  position: relative;
+  width: 100%;
+  z-index: 50;
+}
+
+.logoLink {
+  border-radius: 8px;
+  border-color: rgba(0, 0, 0, 0);
+  color: rgb(44, 72, 114);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 16.8px;
+  outline-color: rgb(44, 72, 114);
+  padding: 2px;
+  text-decoration-color: rgb(44, 72, 114);
+}
+
+.logo {
+  aspect-ratio: auto 80 / 31;
+  color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 16.8px;
+  max-width: 100%;
+  outline-color: rgba(0, 0, 0, 0);
+  overflow: clip;
+  text-decoration-color: rgba(0, 0, 0, 0);
+  vertical-align: middle;
+  width: 80px;
+}
+
+.navCenter {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 40px;
+}
+
+.navList {
+  color: rgb(58, 64, 84);
+  display: flex;
+  gap: 8px;
+  outline-color: rgb(58, 64, 84);
+  text-decoration-color: rgb(58, 64, 84);
+}
+
+.navItem {
+  color: rgb(58, 64, 84);
+  display: list-item;
+  outline-color: rgb(58, 64, 84);
+  text-decoration-color: rgb(58, 64, 84);
+}
+
+.navButton {
+  align-items: center;
+  appearance: button;
+  border-radius: 24px;
+  border-color: rgba(0, 0, 0, 0);
+  color: rgb(58, 64, 84);
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  height: 32px;
+  justify-content: center;
+  line-height: 20px;
+  outline: rgba(0, 0, 0, 0) solid 2px;
+  padding: 0 8px;
+  text-align: center;
+  text-decoration-color: rgb(58, 64, 84);
+  transition: color 0.4s cubic-bezier(0.58, 0, 0, 1),
+    background-color 0.4s cubic-bezier(0.58, 0, 0, 1),
+    border-color 0.4s cubic-bezier(0.58, 0, 0, 1);
+  width: fit-content;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.navButtonText {
+  color: rgb(58, 64, 84);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
+  outline-color: rgb(58, 64, 84);
+  padding: 2px 4px;
+  text-align: center;
+  text-decoration-color: rgb(58, 64, 84);
+}
+
+.chevronIcon {
+  color: rgb(58, 64, 84);
+  cursor: pointer;
+  fill: rgb(58, 64, 84);
+  font-size: 14px;
+  height: 16px;
+  line-height: 20px;
+  outline-color: rgb(58, 64, 84);
+  overflow: hidden;
+  text-align: center;
+  text-decoration-color: rgb(58, 64, 84);
+  transition: transform 0.4s cubic-bezier(0.58, 0, 0, 1);
+  vertical-align: middle;
+  width: 16px;
+}
+
+.navLink {
+  align-items: center;
+  border-radius: 24px;
+  border-color: rgba(0, 0, 0, 0);
+  color: rgb(58, 64, 84);
+  cursor: pointer;
+  display: flex;
+  font-size: 14px;
+  height: 32px;
+  justify-content: center;
+  line-height: 20px;
+  outline: rgba(0, 0, 0, 0) solid 2px;
+  padding: 0 8px;
+  text-decoration-color: rgb(58, 64, 84);
+  transition: color 0.4s cubic-bezier(0.58, 0, 0, 1),
+    background-color 0.4s cubic-bezier(0.58, 0, 0, 1),
+    border-color 0.4s cubic-bezier(0.58, 0, 0, 1);
+  width: fit-content;
+}
+
+.navLinkText {
+  color: rgb(58, 64, 84);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
+  outline-color: rgb(58, 64, 84);
+  padding: 2px 4px;
+  text-decoration-color: rgb(58, 64, 84);
+}
+
+.navRight {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.localeWrapper {
+  height: 32px;
+}
+
+.localeButton {
+  align-items: center;
+  appearance: button;
+  border: 1px solid rgb(246, 247, 249);
+  border-radius: 24px;
+  color: rgb(116, 122, 154);
+  cursor: pointer;
+  display: inline-flex;
+  gap: 8px;
+  height: 32px;
+  outline-color: rgb(227, 237, 253);
+  padding: 0 8px;
+  text-align: center;
+  text-decoration-color: rgb(116, 122, 154);
+  width: 64px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.globeIcon {
+  color: rgb(116, 122, 154);
+  cursor: pointer;
+  fill: rgb(116, 122, 154);
+  height: 24px;
+  outline-color: rgb(116, 122, 154);
+  overflow: hidden;
+  text-align: center;
+  text-decoration-color: rgb(116, 122, 154);
+  vertical-align: middle;
+  width: 24px;
+}
+
+.dropdownIcon {
+  color: rgb(20, 32, 50);
+  cursor: pointer;
+  fill: rgb(20, 32, 50);
+  height: 24px;
+  outline-color: rgb(20, 32, 50);
+  overflow: hidden;
+  text-align: center;
+  text-decoration-color: rgb(20, 32, 50);
+  vertical-align: middle;
+  width: 24px;
+}
+
+.actionButtons {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.demoButton,
+.contactButton {
+  border-radius: 8px;
+  border-color: rgba(0, 0, 0, 0);
+  color: rgb(44, 72, 114);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 16.8px;
+  outline-color: rgb(44, 72, 114);
+  padding: 2px;
+  text-decoration-color: rgb(44, 72, 114);
+}
+
+.demoButtonInner {
+  align-items: center;
+  appearance: button;
+  background-color: rgb(51, 82, 128);
+  border-radius: 24px;
+  border-color: rgba(0, 0, 0, 0);
+  color: rgb(246, 247, 249);
+  cursor: pointer;
+  font-size: 14px;
+  height: 32px;
+  justify-content: center;
+  line-height: 20px;
+  outline: rgba(0, 0, 0, 0) solid 2px;
+  padding: 0 8px;
+  text-align: center;
+  text-decoration-color: rgb(246, 247, 249);
+  transition: color 0.4s cubic-bezier(0.58, 0, 0, 1),
+    background-color 0.4s cubic-bezier(0.58, 0, 0, 1),
+    border-color 0.4s cubic-bezier(0.58, 0, 0, 1);
+  width: fit-content;
+}
+
+.demoButtonInner span {
+  color: rgb(246, 247, 249);
+  cursor: pointer;
+  display: inline;
+  font-size: 14px;
+  line-height: 20px;
+  outline-color: rgb(246, 247, 249);
+  padding: 2px 4px;
+  text-align: center;
+  text-decoration-color: rgb(246, 247, 249);
+}
+
+.contactButtonInner {
+  align-items: center;
+  appearance: button;
+  background-color: rgb(247, 25, 99);
+  border-radius: 24px;
+  border-color: rgba(0, 0, 0, 0);
+  color: rgb(246, 247, 249);
+  cursor: pointer;
+  font-size: 14px;
+  height: 32px;
+  justify-content: center;
+  line-height: 20px;
+  outline: rgba(0, 0, 0, 0) solid 2px;
+  padding: 0 8px;
+  text-align: center;
+  text-decoration-color: rgb(246, 247, 249);
+  transition: color 0.4s cubic-bezier(0.58, 0, 0, 1),
+    background-color 0.4s cubic-bezier(0.58, 0, 0, 1),
+    border-color 0.4s cubic-bezier(0.58, 0, 0, 1);
+  width: fit-content;
+}
+
+.contactButtonInner span {
+  color: rgb(246, 247, 249);
+  cursor: pointer;
+  display: inline;
+  font-size: 14px;
+  line-height: 20px;
+  outline-color: rgb(246, 247, 249);
+  padding: 2px 4px;
+  text-align: center;
+  text-decoration-color: rgb(246, 247, 249);
+}
+
+.mobileMenuButton {
+  align-items: center;
+  appearance: button;
+  border-radius: 9999px;
+  border-color: rgba(0, 0, 0, 0);
+  color: rgb(58, 64, 84);
+  cursor: pointer;
+  display: none;
+  font-size: 14px;
+  height: 32px;
+  justify-content: center;
+  line-height: 20px;
+  outline: rgba(0, 0, 0, 0) solid 2px;
+  text-align: center;
+  text-decoration-color: rgb(58, 64, 84);
+  transition: color 0.4s cubic-bezier(0.58, 0, 0, 1),
+    background-color 0.4s cubic-bezier(0.58, 0, 0, 1),
+    border-color 0.4s cubic-bezier(0.58, 0, 0, 1);
+  width: 32px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.mobileMenuButton span {
+  color: rgb(58, 64, 84);
+  cursor: pointer;
+  display: inline;
+  font-size: 14px;
+  line-height: 20px;
+  outline-color: rgb(58, 64, 84);
+  padding: 2px 4px;
+  text-align: center;
+  text-decoration-color: rgb(58, 64, 84);
+}
+
+.hamburgerIcon {
+  color: rgb(58, 64, 84);
+  cursor: pointer;
+  fill: rgb(58, 64, 84);
+  font-size: 14px;
+  height: 24px;
+  line-height: 20px;
+  outline-color: rgb(58, 64, 84);
+  overflow: hidden;
+  text-align: center;
+  text-decoration-color: rgb(58, 64, 84);
+  vertical-align: middle;
+  width: 24px;
+}
+
+@media (max-width: 1024px) {
+  .navCenter {
+    display: none;
+  }
+
+  .actionButtons {
+    display: none;
+  }
+
+  .localeWrapper {
+    display: none;
+  }
+
+  .mobileMenuButton {
+    display: flex;
+  }
+}
