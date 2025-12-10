@@ -1,7 +1,6 @@
 'use client';
 
 import '@/builder-registry';
-import VtexHeader from '@/components/VtexHeader/VtexHeader';
 import EstatesGallery from '@/components/EstatesGallery/EstatesGallery';
 
 export default function Home() {
@@ -13,18 +12,6 @@ export default function Home() {
       </div>
 
       <div className="showcase-container">
-        <div className="showcase-section">
-          <div className="showcase-section-header">
-            <h2>VTEX Header</h2>
-            <p className="showcase-section-description">
-              A responsive navigation header component with dropdown menus and call-to-action buttons
-            </p>
-          </div>
-          <div className="showcase-component-wrapper">
-            <VtexHeader />
-          </div>
-        </div>
-
         <div className="showcase-section">
           <div className="showcase-section-header">
             <h2>Estates Gallery</h2>
