@@ -2,6 +2,7 @@
 
 import '@/builder-registry';
 import VtexHeader from '@/components/VtexHeader/VtexHeader';
+import EstatesGallery from '@/components/EstatesGallery/EstatesGallery';
 
 export default function Home() {
   return (
