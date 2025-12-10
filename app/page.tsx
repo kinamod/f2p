@@ -2,7 +2,6 @@
 
 import '@/builder-registry';
 import EstatesGallery from '@/components/EstatesGallery/EstatesGallery';
-import RetailTrustHeader from '@/components/RetailTrustHeader/RetailTrustHeader';
 import EventCard from '@/components/EventCard/EventCard';
 
 export default function Home() {
@@ -14,18 +13,6 @@ export default function Home() {
       </div>
 
       <div className="showcase-container">
-        <div className="showcase-section">
-          <div className="showcase-section-header">
-            <h2>Retail Trust Header</h2>
-            <p className="showcase-section-description">
-              A responsive header component with logo, navigation, search, and helpline information
-            </p>
-          </div>
-          <div className="showcase-component-wrapper showcase-header-wrapper">
-            <RetailTrustHeader />
-          </div>
-        </div>
-
         <div className="showcase-section">
           <div className="showcase-section-header">
             <h2>Event Card</h2>
