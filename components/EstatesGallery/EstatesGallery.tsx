@@ -59,7 +59,11 @@ function EstatesCarousel({
 }: EstatesCarouselProps) {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [maxScroll, setMaxScroll] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
   const carouselRef = React.useRef<HTMLUListElement>(null);
+
+  const itemWidth = 270 + 16; // card width + gap
+  const totalPages = estates.length;
 
   const updateMaxScroll = () => {
     if (!carouselRef.current) return;
@@ -75,12 +79,23 @@ function EstatesCarousel({
 
   const scroll = (direction: "prev" | "next") => {
     if (!carouselRef.current) return;
-    const itemWidth = 270 + 16; // card width + gap
     const newPosition =
       direction === "next"
         ? Math.min(scrollPosition + itemWidth, maxScroll)
         : Math.max(0, scrollPosition - itemWidth);
     setScrollPosition(newPosition);
+    setCurrentPage(Math.round(newPosition / itemWidth));
+    carouselRef.current.scrollTo({
+      left: newPosition,
+      behavior: "smooth",
+    });
+  };
+
+  const goToPage = (pageIndex: number) => {
+    if (!carouselRef.current) return;
+    const newPosition = Math.min(pageIndex * itemWidth, maxScroll);
+    setScrollPosition(newPosition);
+    setCurrentPage(pageIndex);
     carouselRef.current.scrollTo({
       left: newPosition,
       behavior: "smooth",
