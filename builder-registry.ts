@@ -2,7 +2,6 @@
 import { builder, Builder } from "@builder.io/react";
 import Counter from "./components/Counter/Counter";
 import EstatesGallery from "./components/EstatesGallery/EstatesGallery";
-import RetailTrustHeader from "./components/RetailTrustHeader/RetailTrustHeader";
 import EventCard from "./components/EventCard/EventCard";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
@@ -19,11 +18,6 @@ Builder.registerComponent(Counter, {
 
 Builder.registerComponent(EstatesGallery, {
   name: "EstatesGallery",
-  inputs: [],
-});
-
-Builder.registerComponent(RetailTrustHeader, {
-  name: "RetailTrustHeader",
   inputs: [],
 });
 
