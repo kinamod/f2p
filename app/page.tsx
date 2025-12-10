@@ -45,7 +45,6 @@ export default function Home() {
               ctaText="Register Now"
               ctaLink="#register"
               category="Conference"
-              featured={true}
             />
             <EventCard
               title="Mental Health Workshop"
