@@ -2,6 +2,7 @@
 
 import '@/builder-registry';
 import EstatesGallery from '@/components/EstatesGallery/EstatesGallery';
+import RetailTrustHeader from '@/components/RetailTrustHeader/RetailTrustHeader';
 
 export default function Home() {
   return (
