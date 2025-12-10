@@ -155,6 +155,16 @@ export default function Home() {
           overflow: visible;
         }
 
+        .showcase-event-grid {
+          background: transparent;
+          box-shadow: none;
+          border-radius: 0;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 24px;
+          padding: 0;
+        }
+
         .showcase-footer-wrapper {
           background: transparent;
           box-shadow: none;
