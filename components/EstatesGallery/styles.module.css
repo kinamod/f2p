@@ -1,21 +1,17 @@
-.galleryContainer {
+.wrapper {
   background-color: rgba(0, 0, 0, 0);
 }
 
-.headerSection {
-  width: 100%;
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 23px;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
-.headerTitle {
-  width: auto;
-  flex: 1;
-}
-
-.title {
+.heading {
   border-color: rgb(53, 54, 54);
   color: rgb(53, 54, 54);
   font-size: 41.056px;
@@ -28,7 +24,7 @@
   word-break: break-word;
 }
 
-.titleLink {
+.headingLink {
   border-color: rgb(106, 151, 207);
   color: rgb(106, 151, 207);
   cursor: pointer;
@@ -43,55 +39,47 @@
   word-break: break-word;
 }
 
-.titleLink:hover {
+.headingLink:hover {
   text-decoration: underline;
 }
 
-.navigationControls {
-  border-radius: 20px;
+.navigationButtons {
   display: flex;
-  gap: 15px;
-  padding: 6px;
-  margin: 0;
-  list-style: none;
+  gap: 8px;
   align-items: center;
 }
 
-.prevButton,
-.nextButton {
-  background-image: url("https://www.retailtrust.org.uk/magazine/dest/graphics/output/sprite.css-f6f504ae.svg");
-  background-repeat: no-repeat;
-  display: inline-block;
-  font-size: 18px;
-  height: 30px;
-  line-height: 28.832px;
-  width: 30px;
-  margin: 0;
-}
-
-.prevButton {
-  background-position: -402px -468px;
-  cursor: default;
-  pointer-events: none;
-}
-
-.nextButton {
-  background-position: -462px -468px;
+.navButton {
+  appearance: none;
+  border: none;
+  background: none;
+  color: rgb(53, 54, 54);
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  width: 30px;
+  padding: 0;
+  transition: color 0.3s ease;
 }
 
-.screenReaderText {
-  clip: rect(1px, 1px, 1px, 1px);
-  cursor: default;
-  font-size: 18px;
-  height: 1px;
-  line-height: 28.832px;
-  overflow: hidden;
-  position: absolute;
-  width: 1px;
+.navButton:hover:not(.disabled) {
+  color: rgb(106, 151, 207);
 }
 
-.galleryWrapper {
+.navButton.disabled {
+  color: rgb(200, 200, 200);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.navButton svg {
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.carouselContainer {
   clear: both;
   margin-left: -8px;
   margin-right: -8px;
@@ -99,28 +87,47 @@
   position: relative;
 }
 
-.galleryContent {
+.carouselInner {
   margin: 0 auto;
   overflow: hidden;
   position: relative;
   width: 100%;
 }
 
-.estatesList {
+.carouselList {
   display: flex;
   height: 100%;
   width: 100%;
   z-index: 1;
-  transform: matrix(1, 0, 0, 1, 0, 0);
   margin: 0;
   padding: 0;
   list-style: none;
   gap: 16px;
   overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
   padding-bottom: 12px;
 }
 
-.estateItem {
+.carouselList::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carouselList::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+.carouselList::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.carouselList::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.carouselItem {
   align-items: flex-start;
   display: flex;
   line-height: 28.832px;
@@ -130,14 +137,14 @@
   margin: 0;
 }
 
-.estateCard {
+.itemWrapper {
   height: 100%;
   line-height: 28.832px;
   padding: 8px;
   width: 100%;
 }
 
-.estateCardContent {
+.cardContainer {
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(220, 220, 220);
   height: 100%;
@@ -147,6 +154,7 @@
 .imageContainer {
   line-height: 28.832px;
   margin-bottom: 16px;
+  position: relative;
 }
 
 .imageLink {
@@ -166,7 +174,7 @@
   text-emphasis-color: rgb(106, 151, 207);
 }
 
-.estateImage {
+.image {
   border-color: rgb(106, 151, 207);
   color: rgb(106, 151, 207);
   cursor: pointer;
@@ -185,24 +193,28 @@
   object-fit: cover;
 }
 
-.titleContainer {
+.image:hover {
+  opacity: 0.9;
+}
+
+.contentArea {
   line-height: 28.832px;
   padding: 20px;
 }
 
-.estateName {
+.cardTitle {
   border-color: rgb(53, 54, 54);
   color: rgb(53, 54, 54);
   font-size: 22.784px;
   letter-spacing: -0.34176px;
   line-height: 28.832px;
-  margin: 0 0 8px 0;
+  margin: 0;
   outline-color: rgb(53, 54, 54);
   text-decoration-color: rgb(53, 54, 54);
   text-emphasis-color: rgb(53, 54, 54);
 }
 
-.estateLink {
+.cardTitleLink {
   border-color: rgb(53, 54, 54);
   color: rgb(53, 54, 54);
   cursor: pointer;
@@ -220,85 +232,93 @@
   -webkit-line-clamp: 2;
 }
 
-.estateLink:hover {
+.cardTitleLink:hover {
   text-decoration: underline;
 }
 
-.ariaLive {
-  display: inline;
-}
-
 @media (max-width: 768px) {
-  .title {
+  .heading {
     font-size: 28px;
     line-height: 32px;
     letter-spacing: -0.28px;
+  }
+
+  .headingLink {
+    font-size: 28px;
+    line-height: 32px;
+    letter-spacing: -0.28px;
+  }
+
+  .header {
     margin-bottom: 16px;
   }
 
-  .titleLink {
-    font-size: 28px;
-    line-height: 32px;
-    letter-spacing: -0.28px;
-  }
-
-  .headerSection {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-  .estateItem {
+  .carouselItem {
     width: 240px;
   }
 
-  .estateName {
+  .cardTitle {
     font-size: 18px;
     letter-spacing: -0.27px;
     line-height: 24px;
   }
 
-  .estateLink {
+  .cardTitleLink {
     font-size: 18px;
     letter-spacing: -0.27px;
     line-height: 24px;
+  }
+
+  .navButton {
+    height: 28px;
+    width: 28px;
   }
 }
 
 @media (max-width: 480px) {
-  .title {
+  .heading {
     font-size: 24px;
     line-height: 28px;
     letter-spacing: -0.24px;
   }
 
-  .titleLink {
+  .headingLink {
     font-size: 24px;
     line-height: 28px;
     letter-spacing: -0.24px;
   }
 
-  .navigationControls {
-    gap: 10px;
+  .header {
+    margin-bottom: 12px;
+    gap: 12px;
   }
 
-  .estateItem {
+  .navigationButtons {
+    gap: 6px;
+  }
+
+  .carouselItem {
     width: 200px;
   }
 
-  .estateName {
+  .cardTitle {
     font-size: 16px;
     letter-spacing: -0.24px;
     line-height: 20px;
   }
 
-  .estateLink {
+  .cardTitleLink {
     font-size: 16px;
     letter-spacing: -0.24px;
     line-height: 20px;
   }
 
-  .titleContainer {
+  .contentArea {
     padding: 16px;
+  }
+
+  .navButton {
+    height: 24px;
+    width: 24px;
   }
 }
