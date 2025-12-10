@@ -24,6 +24,18 @@ export default function Home() {
             <VtexHeader />
           </div>
         </div>
+
+        <div className="showcase-section">
+          <div className="showcase-section-header">
+            <h2>Estates Gallery</h2>
+            <p className="showcase-section-description">
+              A horizontal scrollable gallery showcasing supported living estates with images and titles
+            </p>
+          </div>
+          <div className="showcase-component-wrapper">
+            <EstatesGallery />
+          </div>
+        </div>
       </div>
 
       <style jsx>{`
