@@ -1,0 +1,342 @@
+.header {
+  background-color: rgb(106, 151, 207);
+  padding: 37px 20px 33px 20px;
+  position: relative;
+  z-index: 100;
+}
+
+.headerInner {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1220px;
+  position: relative;
+}
+
+.logoContainer {
+  flex-shrink: 0;
+}
+
+.logoLink {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.desktopLogo {
+  height: 120px;
+  width: 210px;
+  display: block;
+}
+
+.rightSection {
+  align-items: center;
+  display: flex;
+  gap: 45px;
+  margin-left: auto;
+  margin-right: 32px;
+  position: relative;
+}
+
+.helplineContainer {
+  display: flex;
+  align-items: center;
+}
+
+.helplineLabel {
+  color: rgb(255, 255, 255);
+  font-size: 14.224px;
+  line-height: 1.4;
+}
+
+.helplineLink {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-family: Nexa-Black, arial, sans-serif;
+  display: inline;
+}
+
+.helplineNumber {
+  color: rgb(255, 255, 255);
+  font-family: Nexa-Black, arial, sans-serif;
+  font-size: 25.632px;
+  font-weight: 700;
+}
+
+.donateButton {
+  background-color: rgb(255, 255, 255);
+  border-radius: 6px;
+  color: rgb(236, 102, 105);
+  cursor: pointer;
+  font-family: Nexa-Black, arial, sans-serif;
+  font-size: 14.224px;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 11px 40px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: capitalize;
+  transition: background-color 0.25s linear;
+  white-space: nowrap;
+}
+
+.donateButton:hover {
+  background-color: rgb(245, 245, 245);
+}
+
+.navContainer {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+}
+
+.nav {
+  position: relative;
+  z-index: 100;
+}
+
+.navList {
+  display: flex;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  display: list-item;
+  line-height: 35px;
+  margin: 0;
+}
+
+.navItem a {
+  color: rgb(255, 255, 255);
+  font-family: Nexa-Black, arial, sans-serif;
+  font-size: 14.224px;
+  padding: 0 12px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navItem a:hover {
+  color: rgb(200, 220, 245);
+}
+
+.navItemWithBorder {
+  border-left: 1px solid rgb(185, 203, 228);
+  display: list-item;
+  line-height: 35px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.navItemWithBorder a {
+  color: rgb(255, 255, 255);
+  font-family: Nexa-Black, arial, sans-serif;
+  font-size: 14.224px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navItemWithBorder a:hover {
+  color: rgb(200, 220, 245);
+}
+
+.navLink {
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  text-decoration: none;
+  font-family: Nexa-Black, arial, sans-serif;
+  font-size: 14.224px;
+}
+
+.searchContainer {
+  position: relative;
+}
+
+.searchButton {
+  appearance: none;
+  background: none;
+  border: none;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 32px;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.searchButton:hover {
+  color: rgb(200, 220, 245);
+}
+
+.searchButton svg {
+  height: 20px;
+  width: 20px;
+  stroke: currentColor;
+}
+
+.searchForm {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: rgb(106, 151, 207);
+  border-top: 1px solid rgb(185, 203, 228);
+  padding: 16px;
+  margin-top: 8px;
+  min-width: 300px;
+  display: flex;
+  gap: 8px;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.searchInput {
+  flex: 1;
+  appearance: none;
+  background-color: transparent;
+  border: 1px solid rgb(185, 203, 228);
+  border-radius: 4px;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  padding: 8px 12px;
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.searchInput:focus {
+  border-color: rgb(255, 255, 255);
+}
+
+.searchSubmit {
+  appearance: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgb(185, 203, 228);
+  border-radius: 4px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-family: Nexa-Black, arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 16px;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.searchSubmit:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 1024px) {
+  .rightSection {
+    margin-right: 16px;
+    gap: 24px;
+  }
+
+  .helplineLabel {
+    font-size: 12px;
+  }
+
+  .helplineNumber {
+    font-size: 18px;
+  }
+
+  .donateButton {
+    font-size: 12px;
+    padding: 8px 24px;
+  }
+
+  .desktopLogo {
+    height: 100px;
+    width: 175px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 20px 16px;
+  }
+
+  .headerInner {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .rightSection {
+    display: none;
+  }
+
+  .navContainer {
+    width: 100%;
+    justify-content: flex-end;
+    order: 3;
+  }
+
+  .navList {
+    flex-direction: column;
+  }
+
+  .navItem {
+    display: none;
+  }
+
+  .navItemWithBorder {
+    border: none;
+    padding: 0;
+  }
+
+  .desktopLogo {
+    height: 80px;
+    width: 140px;
+  }
+
+  .searchContainer {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 16px 12px;
+  }
+
+  .desktopLogo {
+    height: 60px;
+    width: 105px;
+  }
+
+  .navContainer {
+    width: auto;
+    gap: 12px;
+  }
+
+  .searchButton {
+    height: 28px;
+    width: 28px;
+  }
+
+  .searchButton svg {
+    height: 18px;
+    width: 18px;
+  }
+
+  .searchForm {
+    min-width: 250px;
+  }
+}
