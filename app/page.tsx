@@ -15,6 +15,18 @@ export default function Home() {
       <div className="showcase-container">
         <div className="showcase-section">
           <div className="showcase-section-header">
+            <h2>Retail Trust Header</h2>
+            <p className="showcase-section-description">
+              A responsive header component with logo, navigation, search, and helpline information
+            </p>
+          </div>
+          <div className="showcase-component-wrapper showcase-header-wrapper">
+            <RetailTrustHeader />
+          </div>
+        </div>
+
+        <div className="showcase-section">
+          <div className="showcase-section-header">
             <h2>Estates Gallery</h2>
             <p className="showcase-section-description">
               A horizontal scrollable gallery showcasing supported living estates with images and titles
