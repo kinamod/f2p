@@ -1,3 +1,4 @@
+'use client';
 // We import the SDK from this package for compatibility with Server Components
 import { builder } from '@builder.io/sdk';
 import { RenderBuilderContent } from '@/components/builder';
