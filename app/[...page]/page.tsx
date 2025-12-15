@@ -1,10 +1,10 @@
 'use client';
-// We import the SDK from this package for compatibility with Server Components
-import { builder } from '@builder.io/sdk';
+
+import { builder } from '@builder.io/react';
 import { RenderBuilderContent } from '@/components/builder';
 import '@/builder-registry';
+import { useEffect, useState } from 'react';
 
-// Initialize Builder with your API Key
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
 interface PageParams {
@@ -13,15 +13,33 @@ interface PageParams {
   }>;
 }
 
-export default async function Page({ params }: PageParams) {
-  const MODELNAME = 'page';
-  const path = (await params)?.page?.join('/') || '';
-  const content = await builder
-    .get(MODELNAME, {
-      userAttributes: {
-        urlPath: '/' + path,
-      },
-    })
-    .toPromise();
-  return <RenderBuilderContent content={content} model={MODELNAME} />;
+export default function Page({ params }: PageParams) {
+  const [builderContent, setBuilderContent] = useState(null);
+  const [urlPath, setUrlPath] = useState<string>('');
+
+  useEffect(() => {
+    params.then((resolvedParams) => {
+      const path = resolvedParams?.page?.join('/') || '';
+      setUrlPath('/' + path);
+    });
+  }, [params]);
+
+  useEffect(() => {
+    if (urlPath) {
+      builder
+        .get('page', {
+          userAttributes: {
+            urlPath: urlPath,
+          },
+        })
+        .promise()
+        .then(setBuilderContent);
+    }
+  }, [urlPath]);
+
+  return (
+    <div className="min-h-screen bg-white">
+      {builderContent && <RenderBuilderContent content={builderContent} model="page" />}
+    </div>
+  );
 }
