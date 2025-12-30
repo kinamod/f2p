@@ -8,6 +8,18 @@ export default function Home() {
       <div className="showcase-header">
         <h1>Component Showcase</h1>
         <p>A storybook of reusable components</p>
+        <div className="api-key-notice">
+          ⚠️ <strong>Setup Required:</strong> Set your{' '}
+          <code>NEXT_PUBLIC_BUILDER_API_KEY</code> environment variable to enable
+          Builder.io integration.{' '}
+          <a
+            href="https://builder.io/account/organization"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Get your API key →
+          </a>
+        </div>
       </div>
 
       <div className="showcase-container"></div>
