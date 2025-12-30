@@ -47,6 +47,38 @@ export default function Home() {
           font-weight: 500;
         }
 
+        .api-key-notice {
+          margin-top: 24px;
+          padding: 16px 24px;
+          background: rgba(255, 255, 255, 0.15);
+          border: 2px solid rgba(255, 255, 255, 0.3);
+          border-radius: 12px;
+          font-size: 15px;
+          max-width: 700px;
+          margin-left: auto;
+          margin-right: auto;
+          backdrop-filter: blur(10px);
+        }
+
+        .api-key-notice code {
+          background: rgba(255, 255, 255, 0.25);
+          padding: 3px 8px;
+          border-radius: 4px;
+          font-family: 'Courier New', monospace;
+          font-size: 14px;
+          font-weight: 600;
+        }
+
+        .api-key-notice a {
+          color: white;
+          text-decoration: underline;
+          font-weight: 600;
+        }
+
+        .api-key-notice a:hover {
+          opacity: 0.8;
+        }
+
         .showcase-container {
           max-width: 1400px;
           margin: 0 auto;
