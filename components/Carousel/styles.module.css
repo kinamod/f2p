@@ -1,0 +1,137 @@
+.root {
+  --primary: #ed0007;
+  --accent: #007bff;
+  --bg: #ffffff;
+  --text: #000000;
+  --font: system-ui, sans-serif;
+  --radius: 4px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  font-family: var(--font);
+  background: #111;
+}
+
+.track {
+  display: flex;
+  transition: transform 0.4s ease;
+  will-change: transform;
+}
+
+.slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.slideImage {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+.slideCaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 48px;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+  color: #fff;
+}
+
+.slideHeadline {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+}
+
+.slideSubtext {
+  font-size: 16px;
+  margin: 0 0 16px;
+  opacity: 0.85;
+}
+
+.slideCta {
+  display: inline-block;
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #fff;
+  font-size: 40px;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  backdrop-filter: blur(4px);
+  z-index: 10;
+  transition: background 0.15s;
+  line-height: 1;
+}
+
+.arrow:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.arrowPrev {
+  left: 16px;
+}
+
+.arrowNext {
+  right: 16px;
+}
+
+.dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s;
+}
+
+.dotActive {
+  background: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .slideImage {
+    height: 300px;
+  }
+
+  .slideCaption {
+    padding: 24px;
+  }
+
+  .slideHeadline {
+    font-size: 22px;
+  }
+}
