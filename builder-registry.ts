@@ -107,30 +107,26 @@ Builder.registerComponent(Testimonials, {
 Builder.registerComponent(Footer, {
   name: "Footer",
   inputs: [
-    { name: "logo", type: "string", defaultValue: "Bosch" },
+    { name: "tagline", type: "string", defaultValue: "Technology for life" },
     {
-      name: "columns",
+      name: "brandLinks",
       type: "list",
       subFields: [
-        { name: "heading", type: "string" },
-        {
-          name: "links",
-          type: "list",
-          subFields: [
-            { name: "label", type: "string" },
-            { name: "href", type: "string" },
-          ],
-        },
+        { name: "label", type: "string" },
+        { name: "href", type: "string" },
+        { name: "external", type: "boolean" },
       ],
     },
     {
-      name: "socialLinks",
+      name: "legalLinks",
       type: "list",
       subFields: [
-        { name: "platform", type: "string" },
+        { name: "label", type: "string" },
         { name: "href", type: "string" },
+        { name: "external", type: "boolean" },
       ],
     },
     { name: "copyrightText", type: "string" },
+    { name: "showBackToTop", type: "boolean", defaultValue: true },
   ],
 });

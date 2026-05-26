@@ -1,44 +1,67 @@
 'use client';
 import styles from './styles.module.css';
 
-interface FooterLink { label: string; href: string; }
-interface FooterColumn { heading: string; links: FooterLink[]; }
-interface SocialLink { platform: string; href: string; }
+interface FooterLink { label: string; href: string; external?: boolean; }
 interface FooterProps {
-  logo: string;
-  columns: FooterColumn[];
-  socialLinks?: SocialLink[];
+  tagline: string;
+  brandLinks: FooterLink[];
+  legalLinks: FooterLink[];
   copyrightText: string;
+  showBackToTop?: boolean;
 }
 
-export default function Footer({ logo, columns, socialLinks, copyrightText }: FooterProps) {
+export default function Footer({ tagline, brandLinks, legalLinks, copyrightText, showBackToTop = true }: FooterProps) {
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
   return (
-    <footer className={styles.root}>
+    <footer className={styles.root} aria-label="Footer main">
       <div className={styles.inner}>
-        <div className={styles.brand}>
-          <span className={styles.logo}>{logo}</span>
+
+        <div className={styles.topSection}>
+          <div className={styles.tagline}>{tagline}</div>
+          <ul className={styles.brandLinks}>
+            {brandLinks.map((link) => (
+              <li className={styles.brandLinkItem} key={link.label}>
+                <a
+                  href={link.href}
+                  className={styles.brandLink}
+                  target={link.external ? '_blank' : '_self'}
+                  rel={link.external ? 'noopener noreferrer' : undefined}
+                >
+                  {link.label}
+                  {link.external && <span className={styles.externalIcon} aria-hidden="true">↗</span>}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className={styles.columns}>
-          {columns.map((col) => (
-            <div className={styles.column} key={col.heading}>
-              <h4 className={styles.colHeading}>{col.heading}</h4>
-              <ul className={styles.colLinks}>
-                {col.links.map((l) => (
-                  <li key={l.label}><a className={styles.colLink} href={l.href}>{l.label}</a></li>
-                ))}
-              </ul>
-            </div>
-          ))}
+
+        <hr className={styles.divider} />
+
+        <div className={styles.bottomSection}>
+          <ul className={styles.legalLinks}>
+            {legalLinks.map((link) => (
+              <li className={styles.legalLinkItem} key={link.label}>
+                <a
+                  href={link.href}
+                  className={styles.legalLink}
+                  target={link.external ? '_blank' : '_self'}
+                  rel={link.external ? 'noopener noreferrer' : undefined}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div className={styles.copyright}>{copyrightText}</div>
+          {showBackToTop && (
+            <button className={styles.backToTop} onClick={scrollToTop} aria-label="Back to top" title="back to top">
+              ↑
+            </button>
+          )}
         </div>
+
       </div>
-      {socialLinks && socialLinks.length > 0 && (
-        <div className={styles.social}>
-          {socialLinks.map((s) => (
-            <a className={styles.socialLink} key={s.platform} href={s.href}>{s.platform}</a>
-          ))}
-        </div>
-      )}
-      <div className={styles.copyright}>{copyrightText}</div>
     </footer>
   );
 }

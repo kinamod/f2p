@@ -33,10 +33,23 @@ const boschTestimonials = [
   { quote: 'The diagnostic tools from Bosch have transformed how quickly we can identify and resolve faults.', name: 'Claire W.', role: 'Master Technician', company: 'PrecisionAuto' },
 ];
 
-const boschFooterColumns = [
-  { heading: 'Products', links: [{ label: 'Parts', href: '#' }, { label: 'Diagnostics', href: '#' }, { label: 'Services', href: '#' }] },
-  { heading: 'Company', links: [{ label: 'About Bosch', href: '#' }, { label: 'News', href: '#' }, { label: 'Careers', href: '#' }] },
-  { heading: 'Support', links: [{ label: 'Contact', href: '#' }, { label: 'Technical Help', href: '#' }, { label: 'Warranty', href: '#' }] },
+const boschBrandLinks = [
+  { label: 'Contact', href: 'https://www.boschaftermarket.com/gb/en/contact/', external: false },
+  { label: 'Careers at Bosch', href: 'https://www.bosch.com/careers/', external: true },
+  { label: 'Bosch Media Service', href: 'https://www.bosch-presse.de/pressportal/de/en/news/', external: true },
+  { label: 'Bosch Home Appliances', href: 'https://www.bosch-home.co.uk/', external: true },
+  { label: 'Bosch Home & Garden', href: 'https://www.bosch-diy.com/gb/en', external: true },
+  { label: 'Worcester Bosch', href: 'https://www.worcester-bosch.co.uk/', external: true },
+];
+
+const boschLegalLinks = [
+  { label: 'Imprint', href: 'https://www.boschaftermarket.com/gb/en/imprint.html' },
+  { label: 'Legal notice', href: 'https://www.boschaftermarket.com/gb/en/legal-notice.html' },
+  { label: 'Privacy statement', href: 'https://www.boschaftermarket.com/gb/en/privacy-statement.html' },
+  { label: 'Apprentice Programme Privacy Notice', href: 'https://www.boschaftermarket.com/gb/en/apprenticeship-privacy-notice.html' },
+  { label: 'Goods and Services - Terms of Supply', href: '#', external: true },
+  { label: 'Accessible web content', href: 'https://www.boschaftermarket.com/gb/en/accessibility-statement.html' },
+  { label: 'Privacy settings', href: '#' },
 ];
 
 export default function Home() {
@@ -143,10 +156,11 @@ export default function Home() {
           </div>
           <div className="showcase-footer-wrapper">
             <Footer
-              logo="Bosch"
-              columns={boschFooterColumns}
-              socialLinks={[{ platform: 'LinkedIn', href: '#' }, { platform: 'YouTube', href: '#' }, { platform: 'Twitter', href: '#' }]}
-              copyrightText={`© ${new Date().getFullYear()} Robert Bosch GmbH. All rights reserved.`}
+              tagline="Technology for life"
+              brandLinks={boschBrandLinks}
+              legalLinks={boschLegalLinks}
+              copyrightText="© 2018 - 2026 Robert Bosch Ltd, all rights reserved"
+              showBackToTop={true}
             />
           </div>
         </div>
