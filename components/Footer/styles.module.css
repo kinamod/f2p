@@ -3,133 +3,166 @@
   --accent: #007bc0;
   --bg: #ffffff;
   --text: #000000;
-  --font: system-ui, sans-serif;
-  --heading-font: system-ui, sans-serif;
+  --font: boschsans, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --heading-font: boschsans, "Helvetica Neue", Helvetica, Arial, sans-serif;
   --radius: 8px;
 
-  background: #1a1a1a;
-  color: #ccc;
+  background-color: rgb(46, 48, 51);
+  color: rgb(255, 255, 255);
   font-family: var(--font);
-  padding: 48px 24px 24px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
 }
 
 .inner {
-  max-width: 1140px;
   margin: 0 auto;
+  max-width: 1132px;
+  width: calc(100% - 32px);
 }
 
-.topRow {
+.topSection {
   display: flex;
-  gap: 48px;
-  margin-bottom: 40px;
-}
-
-.brand {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  min-width: 120px;
-}
-
-.brandLogo {
-  display: block;
-}
-
-.brandName {
-  font-size: 12px;
-  color: #999;
-  letter-spacing: 0.04em;
-}
-
-.columns {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 32px;
-  flex: 1;
-}
-
-.column {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.columnHeading {
-  font-size: 13px;
-  font-weight: 700;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin: 0 0 4px;
-}
-
-.columnLinks {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.columnLink {
-  font-size: 13px;
-  color: #aaa;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.columnLink:hover {
-  color: white;
-}
-
-.bottomRow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-top: 1px solid #333;
-  padding-top: 20px;
   flex-wrap: wrap;
-  gap: 12px;
+  justify-content: space-between;
+  padding: 56px 0;
 }
 
-.copyright {
+.tagline {
+  color: rgb(255, 255, 255);
+  font-size: 24px;
+  line-height: 33.6px;
+  margin-top: 8px;
+  width: 66%;
+}
+
+.brandLinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-self: start;
+  flex-basis: 100%;
+  list-style: none;
+  margin: 31px 0 0;
+  padding: 0;
+  order: 3;
+  gap: 0;
+}
+
+.brandLinkItem {
+  margin-right: 24px;
+  position: relative;
+}
+
+.brandLink {
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.brandLink:hover {
+  opacity: 0.75;
+}
+
+.externalIcon {
   font-size: 12px;
-  color: #666;
+  opacity: 0.7;
+}
+
+.divider {
+  background-color: rgb(113, 118, 124);
+  border: none;
+  height: 1px;
+  margin: 8px 0;
+  max-width: 1132px;
+}
+
+.bottomSection {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  font-size: 12px;
+  line-height: 18px;
+  max-width: 1132px;
+  padding: 24px 0 32px;
+  position: relative;
 }
 
 .legalLinks {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   list-style: none;
-  margin: 0;
-  padding: 0;
-  gap: 20px;
+  margin: 0 0 16px;
+  padding: 0 48px 0 0;
+  order: 3;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.legalLinkItem {
+  font-size: 12px;
+  line-height: 18px;
+  margin-right: 24px;
+  position: relative;
 }
 
 .legalLink {
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: inline-block;
   font-size: 12px;
-  color: #777;
+  line-height: 18px;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: opacity 0.15s;
 }
 
 .legalLink:hover {
-  color: white;
+  opacity: 0.75;
+}
+
+.copyright {
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  line-height: 18px;
+  margin-right: 24px;
+  order: 1;
+}
+
+.backToTop {
+  background-color: transparent;
+  border: none;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: -12px;
+  top: -4px;
+  font-size: 24px;
+  padding: 12px;
+  transition: opacity 0.15s;
+}
+
+.backToTop:hover {
+  opacity: 0.75;
 }
 
 @media (max-width: 768px) {
-  .topRow {
-    flex-direction: column;
-    gap: 32px;
+  .tagline {
+    width: 100%;
+    font-size: 20px;
   }
 
-  .bottomRow {
-    flex-direction: column;
-    align-items: flex-start;
+  .topSection {
+    padding: 40px 0;
   }
 
   .legalLinks {
-    flex-wrap: wrap;
-    gap: 12px;
+    padding-right: 40px;
   }
 }
