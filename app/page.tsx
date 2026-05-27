@@ -9,55 +9,12 @@ import Carousel from '@/components/Carousel/Carousel';
 import Testimonials from '@/components/Testimonials/Testimonials';
 import Footer from '@/components/Footer/Footer';
 
-const boschNavLinks = [
-  { label: 'Parts', href: '/gb/en/parts/' },
-  { label: 'Diagnostics', href: '/gb/en/diagnostics/' },
-  { label: 'Services', href: '/gb/en/services/' },
-  { label: 'News', href: '/gb/en/news/' },
-];
-
-const boschCards = [
-  { icon: '🔧', title: 'OE Quality Parts', body: 'Every component meets original equipment standards — the same parts fitted to vehicles at the factory.' },
-  { icon: '🔬', title: 'Advanced Diagnostics', body: 'Industry-leading diagnostic tools and software to identify faults faster and with greater accuracy.' },
-  { icon: '🌍', title: 'Global Expertise', body: 'Over 130 years of automotive innovation, trusted by workshops and technicians worldwide.' },
-];
-
-const boschSlides = [
-  { image: 'https://picsum.photos/seed/bosch1/1200/500', headline: 'Bosch. The automotive influencers', subtext: 'Shaping the automotive industry for over 130 years.', ctaLabel: 'Explore Parts', ctaHref: '#' },
-  { image: 'https://picsum.photos/seed/bosch2/1200/500', headline: 'Precision Diagnostics', subtext: 'Find faults faster with Bosch diagnostic solutions.', ctaLabel: 'View Diagnostics', ctaHref: '#' },
-  { image: 'https://picsum.photos/seed/bosch3/1200/500', headline: 'Genuine Parts. Total Confidence.', subtext: 'OE quality for every make and model.', ctaLabel: 'Shop Now', ctaHref: '#' },
-];
-
-const boschTestimonials = [
-  { quote: 'Bosch parts have never let us down. The quality is consistently excellent and delivery is always on time.', name: 'Mark T.', role: 'Workshop Manager', company: 'AutoFix Garages' },
-  { quote: 'The diagnostic tools from Bosch have transformed how quickly we can identify and resolve faults.', name: 'Claire W.', role: 'Master Technician', company: 'PrecisionAuto' },
-];
-
-const boschBrandLinks = [
-  { label: 'Contact', href: 'https://www.boschaftermarket.com/gb/en/contact/', external: false },
-  { label: 'Careers at Bosch', href: 'https://www.bosch.com/careers/', external: true },
-  { label: 'Bosch Media Service', href: 'https://www.bosch-presse.de/pressportal/de/en/news/', external: true },
-  { label: 'Bosch Home Appliances', href: 'https://www.bosch-home.co.uk/', external: true },
-  { label: 'Bosch Home & Garden', href: 'https://www.bosch-diy.com/gb/en', external: true },
-  { label: 'Worcester Bosch', href: 'https://www.worcester-bosch.co.uk/', external: true },
-];
-
-const boschLegalLinks = [
-  { label: 'Imprint', href: 'https://www.boschaftermarket.com/gb/en/imprint.html' },
-  { label: 'Legal notice', href: 'https://www.boschaftermarket.com/gb/en/legal-notice.html' },
-  { label: 'Privacy statement', href: 'https://www.boschaftermarket.com/gb/en/privacy-statement.html' },
-  { label: 'Apprentice Programme Privacy Notice', href: 'https://www.boschaftermarket.com/gb/en/apprenticeship-privacy-notice.html' },
-  { label: 'Goods and Services - Terms of Supply', href: '#', external: true },
-  { label: 'Accessible web content', href: 'https://www.boschaftermarket.com/gb/en/accessibility-statement.html' },
-  { label: 'Privacy settings', href: '#' },
-];
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       <div className="showcase-header">
         <h1>Component Showcase</h1>
-        <p>Bosch Aftermarket — cloned from boschaftermarket.com</p>
+        <p>Clone a site to populate these components</p>
       </div>
 
       <div className="showcase-container">
@@ -69,8 +26,8 @@ export default function Home() {
           </div>
           <div className="showcase-header-wrapper">
             <AnnouncementBar
-              message="New for 2025: Bosch Advanced Driver Assistance Systems now available"
-              linkLabel="Find out more"
+              message="🎉 New: Check out our latest features"
+              linkLabel="Learn more"
               linkHref="#"
               dismissible={true}
             />
@@ -84,9 +41,13 @@ export default function Home() {
           </div>
           <div className="showcase-header-wrapper">
             <NavBar
-              logo="Bosch"
-              links={boschNavLinks}
-              ctaLabel="Shop Now"
+              logo="Acme"
+              links={[
+                { label: 'Home', href: '#' },
+                { label: 'Features', href: '#' },
+                { label: 'Pricing', href: '#' },
+              ]}
+              ctaLabel="Get Started"
               ctaHref="#"
             />
           </div>
@@ -99,9 +60,9 @@ export default function Home() {
           </div>
           <div className="showcase-header-wrapper">
             <Hero
-              headline="Bosch. The automotive influencers"
-              subtext="Bosch have been shaping the automotive industry and whilst many people today claim to be influencers, with over 130 years' experience shaping automotive technology, we really are."
-              primaryCtaLabel="Explore Parts"
+              headline="Welcome to Acme"
+              subtext="The platform built for modern teams."
+              primaryCtaLabel="Get Started"
               primaryCtaHref="#"
               secondaryCtaLabel="Learn More"
               secondaryCtaHref="#"
@@ -116,8 +77,12 @@ export default function Home() {
           </div>
           <div className="showcase-component-wrapper">
             <FeatureCards
-              heading="Why choose Bosch?"
-              cards={boschCards}
+              heading="Why choose us"
+              cards={[
+                { icon: '⚡', title: 'Fast', body: 'Built for speed from the ground up.' },
+                { icon: '🔒', title: 'Secure', body: 'Enterprise-grade security by default.' },
+                { icon: '🎨', title: 'Beautiful', body: 'Designed to delight your users.' },
+              ]}
             />
           </div>
         </div>
@@ -129,7 +94,11 @@ export default function Home() {
           </div>
           <div className="showcase-header-wrapper">
             <Carousel
-              slides={boschSlides}
+              slides={[
+                { image: 'https://picsum.photos/seed/slide1/1200/500', headline: 'Slide One', subtext: 'Your first message here.' },
+                { image: 'https://picsum.photos/seed/slide2/1200/500', headline: 'Slide Two', subtext: 'Your second message here.' },
+                { image: 'https://picsum.photos/seed/slide3/1200/500', headline: 'Slide Three', subtext: 'Your third message here.' },
+              ]}
               autoPlay={true}
               interval={4000}
             />
@@ -144,7 +113,10 @@ export default function Home() {
           <div className="showcase-component-wrapper">
             <Testimonials
               heading="What our customers say"
-              testimonials={boschTestimonials}
+              testimonials={[
+                { quote: 'This product changed the way our team works. Absolutely essential.', name: 'Sarah K.', role: 'CTO', company: 'TechCorp' },
+                { quote: 'Incredible value and outstanding support. We could not be happier.', name: 'James R.', role: 'Founder', company: 'StartupXYZ' },
+              ]}
             />
           </div>
         </div>
@@ -152,14 +124,22 @@ export default function Home() {
         <div className="showcase-section">
           <div className="showcase-section-header">
             <h2>Footer</h2>
-            <p className="showcase-section-description">Multi-column footer with logo, links, social icons, and copyright.</p>
+            <p className="showcase-section-description">Multi-row footer with tagline, brand links, legal links, and copyright.</p>
           </div>
           <div className="showcase-footer-wrapper">
             <Footer
               tagline="Technology for life"
-              brandLinks={boschBrandLinks}
-              legalLinks={boschLegalLinks}
-              copyrightText="© 2018 - 2026 Robert Bosch Ltd, all rights reserved"
+              brandLinks={[
+                { label: 'Contact', href: '#' },
+                { label: 'Careers', href: '#' },
+                { label: 'Press', href: '#' },
+              ]}
+              legalLinks={[
+                { label: 'Imprint', href: '#' },
+                { label: 'Legal notice', href: '#' },
+                { label: 'Privacy statement', href: '#' },
+              ]}
+              copyrightText={`© ${new Date().getFullYear()} Acme. All rights reserved.`}
               showBackToTop={true}
             />
           </div>
@@ -169,7 +149,7 @@ export default function Home() {
 
       <style jsx>{`
         .showcase-header {
-          background: linear-gradient(135deg, #ed0007 0%, #a00005 100%);
+          background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
           color: white;
           padding: 60px 20px;
           text-align: center;
