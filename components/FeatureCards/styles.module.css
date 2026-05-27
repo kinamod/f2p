@@ -1,0 +1,89 @@
+.root {
+  --primary: #ed0007;
+  --accent: #007bc0;
+  --bg: #ffffff;
+  --text: #000000;
+  --font: system-ui, sans-serif;
+  --heading-font: system-ui, sans-serif;
+  --radius: 8px;
+
+  background: var(--bg);
+  padding: 64px 24px;
+  font-family: var(--font);
+}
+
+.sectionHeading {
+  font-family: var(--heading-font);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+  margin: 0 0 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.card {
+  background: #f4f4f4;
+  padding: 32px 28px;
+  border-top: 4px solid var(--primary);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.cardIcon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.cardBody {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.cardLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 4px;
+}
+
+.cardLink:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .root {
+    padding: 40px 16px;
+  }
+
+  .sectionHeading {
+    font-size: 22px;
+  }
+}
