@@ -28,19 +28,16 @@
 .logoLink {
   display: flex;
   align-items: center;
-  gap: 10px;
   text-decoration: none;
 }
 
-.logoSvg {
-  display: block;
-}
-
-.logoText {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: -0.01em;
+.logoWordmark {
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--primary);
+  letter-spacing: -0.03em;
+  font-family: Arial Black, Arial, sans-serif;
+  line-height: 1;
 }
 
 .desktopNav {

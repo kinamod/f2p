@@ -41,7 +41,7 @@
 .quoteMark {
   font-size: 56px;
   line-height: 1;
-  color: var(--primary);
+  color: var(--accent);
   font-family: Georgia, serif;
   display: block;
   margin-bottom: -12px;

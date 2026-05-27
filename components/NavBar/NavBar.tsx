@@ -32,10 +32,7 @@ export default function NavBar({
     <header className={styles.root}>
       <div className={styles.topBar}>
         <a href="/gb/en/" className={styles.logoLink} aria-label="Bosch Aftermarket Home">
-          <svg xmlns="http://www.w3.org/2000/svg" width="72" height="16" viewBox="0 0 433 97" className={styles.logoSvg}>
-            <polygon points="416.3 16.38 416.3 39.78 397 39.78 397 16.38 380.3 16.38 380.3 79.98 397 79.98 397 54.88 416.3 54.88 416.3 79.98 433 79.98 433 16.38 416.3 16.38" style={{ fill: '#ed0007', fillRule: 'evenodd' }} />
-          </svg>
-          <span className={styles.logoText}>Bosch Aftermarket</span>
+          <span className={styles.logoWordmark}>Bosch</span>
         </a>
 
         <nav className={styles.desktopNav} aria-label="Main Navigation">
