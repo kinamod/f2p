@@ -5,6 +5,19 @@ import { useState } from 'react';
 
 export default function Home() {
   const [url, setUrl] = useState('');
+  const [copied, setCopied] = useState(false);
+
+  async function handleClone() {
+    if (!url) return;
+    const msg = `clone this site: ${url}`;
+    try {
+      await navigator.clipboard.writeText(msg);
+    } catch {
+      // fallback: nothing to do silently
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  }
 
   return (
     <div style={{
@@ -18,7 +31,7 @@ export default function Home() {
       padding: '20px',
     }}>
       <h1 style={{ fontSize: '32px', fontWeight: 700, color: '#1a202c', margin: '0 0 8px 0', textAlign: 'center' }}>
-        Clone a website
+        Prep for Publish
       </h1>
       <p style={{ fontSize: '16px', color: '#718096', margin: '0 0 40px 0', textAlign: 'center' }}>
         Paste a homepage URL and Fusion will generate matching components
@@ -50,23 +63,22 @@ export default function Home() {
           onBlur={(e) => (e.target.style.borderColor = '#e2e8f0')}
         />
         <button
-          onClick={() => {
-            if (url) navigator.clipboard.writeText(`clone this site: ${url}`);
-          }}
+          onClick={handleClone}
           style={{
             padding: '14px 24px',
             fontSize: '16px',
             fontWeight: 600,
-            background: '#2563eb',
+            background: copied ? '#16a34a' : '#2563eb',
             color: 'white',
             border: 'none',
             borderRadius: '10px',
-            cursor: 'pointer',
+            cursor: url ? 'pointer' : 'default',
             whiteSpace: 'nowrap',
-            boxShadow: '0 2px 8px rgba(37,99,235,0.3)',
+            boxShadow: copied ? '0 2px 8px rgba(22,163,74,0.3)' : '0 2px 8px rgba(37,99,235,0.3)',
+            transition: 'background 0.2s, box-shadow 0.2s',
           }}
         >
-          Clone
+          {copied ? '✓ Copied!' : 'Clone'}
         </button>
       </div>
       <p style={{ fontSize: '13px', color: '#a0aec0', marginTop: '16px', textAlign: 'center' }}>
