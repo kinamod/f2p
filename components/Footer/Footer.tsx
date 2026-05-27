@@ -10,7 +10,7 @@ interface FooterProps {
   showBackToTop?: boolean;
 }
 
-export default function Footer({ tagline, brandLinks, legalLinks, copyrightText, showBackToTop = true }: FooterProps) {
+export default function Footer({ tagline, brandLinks = [], legalLinks = [], copyrightText, showBackToTop = true }: FooterProps) {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   return (

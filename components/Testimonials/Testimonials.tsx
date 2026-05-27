@@ -7,7 +7,7 @@ interface TestimonialsProps {
   testimonials: Testimonial[];
 }
 
-export default function Testimonials({ heading, testimonials }: TestimonialsProps) {
+export default function Testimonials({ heading, testimonials = [] }: TestimonialsProps) {
   return (
     <section className={styles.root}>
       {heading && <h2 className={styles.heading}>{heading}</h2>}

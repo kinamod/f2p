@@ -7,7 +7,7 @@ interface FeatureCardsProps {
   cards: Card[];
 }
 
-export default function FeatureCards({ heading, cards }: FeatureCardsProps) {
+export default function FeatureCards({ heading, cards = [] }: FeatureCardsProps) {
   return (
     <section className={styles.root}>
       {heading && <h2 className={styles.heading}>{heading}</h2>}

@@ -9,7 +9,7 @@ interface CarouselProps {
   interval?: number;
 }
 
-export default function Carousel({ slides, autoPlay = false, interval = 4000 }: CarouselProps) {
+export default function Carousel({ slides = [], autoPlay = false, interval = 4000 }: CarouselProps) {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {

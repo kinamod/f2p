@@ -10,7 +10,7 @@ interface NavBarProps {
   ctaHref: string;
 }
 
-export default function NavBar({ logo, links, ctaLabel, ctaHref }: NavBarProps) {
+export default function NavBar({ logo, links = [], ctaLabel, ctaHref }: NavBarProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   return (
     <nav className={styles.root}>
