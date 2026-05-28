@@ -89,10 +89,19 @@ The navbar text color must match the site. Common mistake: using black text when
 For every section with valid HTML (from Step 1), run the full `component-from-html` pipeline:
 
 1. Pass the extracted HTML to the `component-from-html` skill as the source.
-2. The skill handles: naming, prop extraction, JSX conversion, CSS module creation, Builder.io registration, and showcase addition.
+2. The skill handles: naming, prop extraction, JSX conversion, CSS module creation, Builder.io registration, and dual-page addition.
 3. Apply the CTA button color from Step 2 to any button in the component.
 4. Apply the logo from Step 3 to any navbar/header component.
 5. Apply the correct navbar text + background color from Step 4 to the navbar component.
+
+### Dual output — both page files must be updated for every component:
+
+| File | What goes here |
+|------|---------------|
+| `app/page.tsx` | A `<section>` block with the component name as `<h2>`, a one-sentence description, and the component rendered with real default props |
+| `app/home/page.tsx` | The raw component tag only, in correct page order (navbar first, footer last), with no name/description wrappers |
+
+Do not skip either file. After all components are added, ensure `app/home/page.tsx` assembles into a coherent full-page clone and `app/page.tsx` shows each component in isolation.
 
 ---
 
@@ -106,6 +115,7 @@ For every section with valid HTML (from Step 1), run the full `component-from-ht
 | Logo accuracy | Use the real image URL or real SVG. Never a placeholder or text substitute. |
 | Navbar text color | Must match the actual site. Inspect the nav HTML before writing CSS. |
 | Report substitutions | If you replace a missing section with a different one, say so explicitly. |
+| Dual page output | Every component goes into both `app/page.tsx` (showcase) and `app/home/page.tsx` (full clone). |
 
 ---
 
@@ -130,5 +140,6 @@ Logo source: https://cdn.example.com/logo.svg
 
 Components created: 7
 All registered in builder-registry.ts ✓
-All showcased in app/page.tsx ✓
+All showcased in app/page.tsx (with name + description per section) ✓
+All assembled in app/home/page.tsx (raw, full-page order) ✓
 ```

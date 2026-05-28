@@ -4,7 +4,7 @@
 
 ## Purpose
 
-Completely wipe all cloned components and reset the showcase page (`app/home/page.tsx`) and the registry (`builder-registry.ts`) back to empty shells, ready for a new `clone-site` run. The `app/page.tsx` launcher tool is never touched.
+Completely wipe all cloned components and reset both page files and the registry back to empty shells, ready for a new `clone-site` run.
 
 ---
 
@@ -12,7 +12,7 @@ Completely wipe all cloned components and reset the showcase page (`app/home/pag
 
 Before doing anything destructive, confirm with the user:
 
-> "This will permanently delete all components in `components/` (except `builder.tsx`), clear `app/home/page.tsx`, and reset `builder-registry.ts`. Are you sure?"
+> "This will permanently delete all components in `components/` (except `builder.tsx`), clear `app/page.tsx` back to the empty showcase shell, reset `app/home/page.tsx`, and reset `builder-registry.ts`. Are you sure?"
 
 If the user confirms (yes, go ahead, do it, clear it, etc.), proceed. If they hesitate or say no, stop.
 
@@ -36,7 +36,30 @@ Expected output: only `builder.tsx` remains.
 
 ---
 
-## Step 3 — Reset app/home/page.tsx
+## Step 3 — Reset app/page.tsx to empty showcase shell
+
+Overwrite `app/page.tsx` with the empty showcase shell. This removes all component imports and section blocks while keeping the showcase structure intact for the next clone run:
+
+```tsx
+import '@/builder-registry';
+import styles from './showcase.module.css';
+
+export default function ShowcasePage() {
+  return (
+    <main className={styles.showcaseMain}>
+      <div className={styles.emptyState}>
+        <p className={styles.emptyStateText}>
+          No components yet — ask Fusion to clone a site.
+        </p>
+      </div>
+    </main>
+  );
+}
+```
+
+---
+
+## Step 4 — Reset app/home/page.tsx
 
 Overwrite `app/home/page.tsx` with an empty shell that exports a valid default component. Do not leave broken imports:
 
@@ -48,7 +71,7 @@ export default function ClonedHome() {
 
 ---
 
-## Step 4 — Reset builder-registry.ts
+## Step 5 — Reset builder-registry.ts
 
 Overwrite `builder-registry.ts` keeping only the `builder.init` call. Remove all component imports and `Builder.registerComponent` calls:
 
@@ -61,7 +84,7 @@ builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
 ---
 
-## Step 5 — Verify
+## Step 6 — Verify
 
 After all changes:
 
@@ -69,12 +92,14 @@ After all changes:
    ```bash
    ls components/
    ```
-2. Confirm `app/home/page.tsx` has no broken imports.
-3. Confirm `builder-registry.ts` has no references to deleted components.
+2. Confirm `app/page.tsx` shows the empty showcase shell with no broken imports.
+3. Confirm `app/home/page.tsx` has no broken imports.
+4. Confirm `builder-registry.ts` has no references to deleted components.
 
 Report:
 ```
 ✓ Deleted components: AnnouncementBar, NavBar, Hero, Carousel, FeatureCards, Testimonials, Footer (example)
+✓ app/page.tsx — reset to empty showcase shell
 ✓ app/home/page.tsx — reset to empty shell
 ✓ builder-registry.ts — reset to builder.init only
 Ready for a new clone-site run.
@@ -86,11 +111,13 @@ Ready for a new clone-site run.
 
 | File/folder | Reason |
 |-------------|--------|
-| `app/page.tsx` | The "Prep for Publish" launcher tool — always preserved |
+| `app/page.tsx` | Reset to empty showcase shell — never fully deleted |
+| `app/home/page.tsx` | Reset to empty shell — never fully deleted |
 | `components/builder.tsx` | Builder.io infrastructure |
 | `app/[...page]/page.tsx` | Builder.io page routing |
 | `app/layout.tsx` | App shell |
 | `app/globals.css` | Global styles |
+| `app/showcase.module.css` | Showcase page styles — always preserved |
 | `builder-registry.ts` | Kept, but emptied back to `builder.init` only |
 | `scripts/render-page.js` | Puppeteer render tool |
 | `.builder/skills/` | All skills |

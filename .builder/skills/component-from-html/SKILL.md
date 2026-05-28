@@ -4,7 +4,7 @@
 
 ## Purpose
 
-Full pipeline: analyse pasted HTML → create a TypeScript + CSS Module component → register it with Builder.io → add it to the showcase page → verify.
+Full pipeline: analyse pasted HTML → create a TypeScript + CSS Module component → register it with Builder.io → add it to the showcase page and the full clone page → verify.
 
 This skill composes the three atomic skills (`create-component`, `register-component`, `showcase-component`) into a single automated flow.
 
@@ -94,18 +94,55 @@ Every input must include a `defaultValue` matching the component's defaults.
 
 ---
 
-## Step 3 — Add to Showcase
+## Step 3 — Add to both page files
 
-Follow the `showcase-component` skill rules exactly.
+This step updates **two** files:
 
-Find the showcase page (renders multiple components side by side, typically `app/page.tsx`), then:
-1. Add the import using the same path alias as other imports
-2. Add a `<section>` block matching the existing section structure:
-   - Component name as a heading
-   - One-sentence description
-   - Component rendered with its real default props (never placeholders)
+### 3a — Component showcase (`app/page.tsx`)
 
-Insert in logical order: header → hero → content → footer. Append at the bottom if order is unclear.
+`app/page.tsx` is the component showcase. Each component gets its own `<section>` block so it can be viewed in isolation.
+
+1. Add the import at the top alongside other component imports.
+2. Add a `<section className={styles.showcaseSection}>` block in logical page order (header → hero → content → footer). Append at the bottom if order is unclear.
+3. The section must contain:
+   - `<div className={styles.showcaseSectionHeader}>` with an `<h2>` (component name, human-readable) and a `<p className={styles.showcaseSectionDescription}>` (one sentence describing what it does)
+   - `<div className={styles.showcaseComponentWrapper}>` wrapping the component rendered with its **real default props** (never empty strings or placeholders)
+
+Example section shape:
+```tsx
+<section className={styles.showcaseSection}>
+  <div className={styles.showcaseSectionHeader}>
+    <h2>Nav Bar</h2>
+    <p className={styles.showcaseSectionDescription}>Top navigation with logo, links, and CTA button.</p>
+  </div>
+  <div className={styles.showcaseComponentWrapper}>
+    <NavBar />
+  </div>
+</section>
+```
+
+Also ensure the `emptyState` div is removed from `app/page.tsx` once the first component is added — do not leave the "No components yet" message alongside real components.
+
+### 3b — Full clone page (`app/home/page.tsx`)
+
+`app/home/page.tsx` is the full assembled page clone. Components go here **without** name/description wrappers — just the raw component in page order.
+
+1. Add the import.
+2. Render the component directly inside the page's return, in the correct position (navbar first, footer last).
+3. No `<section>` wrappers, no headings, no descriptions — just the component tag.
+
+Example:
+```tsx
+export default function ClonedHome() {
+  return (
+    <>
+      <NavBar />
+      <Hero />
+      <Footer />
+    </>
+  );
+}
+```
 
 ---
 
@@ -122,9 +159,9 @@ After all three steps:
    - Import resolves to the correct file
    - `inputs` array covers every prop
 
-3. Check the showcase file:
-   - Import added
-   - Section renders the component
+3. Check both page files:
+   - `app/page.tsx`: import added, section block renders the component with real props
+   - `app/home/page.tsx`: import added, raw component rendered in page order
 
 4. **Summarise** what was created:
    ```
@@ -132,6 +169,7 @@ After all three steps:
    ✓ Created: components/{ComponentName}/styles.module.css
    ✓ Registered: builder-registry.ts — N inputs
    ✓ Showcased: app/page.tsx — section added
+   ✓ Full page: app/home/page.tsx — component added
    ```
 
 ---
