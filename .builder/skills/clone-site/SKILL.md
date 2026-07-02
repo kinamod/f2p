@@ -8,6 +8,16 @@ Extract fully JS-rendered HTML from a live website using Puppeteer, then build m
 
 ---
 
+## Prerequisites
+
+`scripts/render-page.js` connects to a **remote** browser via [browserless.io](https://www.browserless.io/) rather than launching a local Chromium instance.
+
+- `PUPPETEER_BROWSER_WS_ENDPOINT` must be set (e.g. `wss://chrome.browserless.io?token=YOUR_API_KEY`).
+- The script automatically retries up to 3 times on transient connection errors ("Target closed", "Protocol error") before failing — no manual retry needed.
+- Before running a clone for the first time, verify connectivity with `npm run test-browserless`.
+
+---
+
 ## Step 0 — Run the Puppeteer render script
 
 ```bash
@@ -143,3 +153,19 @@ All registered in builder-registry.ts ✓
 All showcased in app/page.tsx (with name + description per section) ✓
 All assembled in app/home/page.tsx (raw, full-page order) ✓
 ```
+
+---
+
+## Troubleshooting
+
+**Connection timeouts / refusals:**
+- Run `npm run test-browserless` to confirm `PUPPETEER_BROWSER_WS_ENDPOINT` is reachable and the API key is valid.
+- Check that the endpoint URL and token haven't expired.
+
+**"Target closed" / "Protocol error":**
+- These are transient browserless.io connection drops. `render-page.js` retries automatically up to 3 times before surfacing an error — if it still fails after retries, re-run the command or check browserless.io's status.
+
+**Bot detection / blocked pages:**
+- Some sites detect and block headless browsers, returning empty or CAPTCHA-gated HTML.
+- Fall back to `WebFetch` for server-rendered pages, or ask the user to paste the page's HTML directly from browser DevTools.
+- Do not fabricate sections to work around a block — skip or substitute with a real alternative section instead.

@@ -118,6 +118,57 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
+## 🌐 Quick Start: Cloning a Website
+
+Fusion can clone a live website's sections into Builder components using a remote headless browser (via [browserless.io](https://www.browserless.io/)).
+
+### 1. Get a browserless.io API key
+
+Sign up at [browserless.io](https://www.browserless.io/) and copy your API key/token from the dashboard.
+
+### 2. Set the environment variables
+
+Add these to your Builder.io project settings:
+
+```
+PUPPETEER_BROWSER_WS_ENDPOINT=wss://chrome.browserless.io?token=YOUR_API_KEY
+NEXT_PUBLIC_BUILDER_API_KEY=your-builder-api-key
+```
+
+### 3. Verify your setup
+
+```bash
+npm run test-browserless
+```
+
+This checks the WebSocket connection, validates your API key, and confirms page creation/navigation work before you attempt a clone.
+
+### 4. Clone a site
+
+```bash
+npm run clone -- https://example.com
+```
+
+Or ask Fusion directly: "clone this site: https://example.com".
+
+### Troubleshooting
+
+**Connection timeouts:**
+- Confirm `PUPPETEER_BROWSER_WS_ENDPOINT` is correct and reachable from your network.
+- Run `npm run test-browserless` to isolate the failure.
+
+**"Target closed" / "Protocol error":**
+- These are transient browserless connection errors. `scripts/render-page.js` automatically retries up to 3 times before failing.
+
+**Authorization failures (401/403):**
+- Your browserless.io token is invalid, expired, or missing from the endpoint URL.
+
+**Network unreachable:**
+- Check DNS resolution and outbound network access to the browserless.io host.
+
+**Bot detection / blocked pages:**
+- Some sites block headless browsers. If cloning fails, try again later, or paste the page's HTML directly (from browser DevTools) for Fusion to work from instead.
+
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
 ## 📚 Learn More
