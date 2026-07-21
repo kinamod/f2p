@@ -1,0 +1,136 @@
+.highlightSection {
+  height: 100vh;
+  margin-left: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stickyCta {
+  z-index: 99;
+  background-color: var(--bright-blue, #71f7fc);
+  color: #000;
+  background-image: url('https://cdn.prod.website-files.com/678241dab67384084128e2ec/67901a2c42dc05bcb75f343a_arrow-black.svg');
+  background-position: 90%;
+  background-repeat: no-repeat;
+  background-size: 14px;
+  border-radius: 25px;
+  padding: 8px 50px 8px 25px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-decoration: none;
+  transition: background-position 0.4s;
+  position: absolute;
+  inset: 50px 80px auto auto;
+}
+
+.stickyCta:hover {
+  background-position: 91%;
+}
+
+.row {
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  background-color: var(--blue, #1c5ff6);
+  display: flex;
+  position: relative;
+}
+
+.mediaColumn {
+  width: 50%;
+  position: relative;
+}
+
+.highlightVideo {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.contentColumn {
+  width: 50%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0 80px;
+  color: var(--white, #fff);
+}
+
+.primaryText {
+  margin-top: 0;
+  margin-bottom: 40px;
+  font-size: 60px;
+  font-weight: 500;
+  line-height: 70px;
+}
+
+.secondaryText {
+  margin-top: 0;
+  margin-bottom: 45px;
+  font-size: 38px;
+  font-weight: 500;
+  line-height: 48px;
+}
+
+.dots {
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  background-color: transparent;
+  border: 1px solid var(--white, #fff);
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  cursor: pointer;
+}
+
+.dotActive {
+  background-color: var(--white, #fff);
+}
+
+@media screen and (max-width: 991px) {
+  .highlightSection {
+    margin-left: 0;
+  }
+
+  .sticky {
+    padding-top: 40px;
+    right: 40px;
+  }
+
+  .row {
+    flex-flow: column;
+  }
+
+  .mediaColumn,
+  .contentColumn {
+    width: 100%;
+  }
+
+  .primaryText {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  .secondaryText {
+    font-size: 28px;
+    line-height: 38px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .stickyCta {
+    right: 20px;
+  }
+
+  .contentColumn {
+    padding: 40px 20px;
+  }
+}

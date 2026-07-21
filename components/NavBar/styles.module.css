@@ -1,0 +1,244 @@
+.sideNav {
+  z-index: 99;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80px;
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  inset: 0% auto 0% 0%;
+}
+
+.navWrapper {
+  z-index: 99;
+  background-color: #1c5ff6;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  display: flex;
+}
+
+.logoWrapper {
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 2.6rem 0;
+  display: flex;
+  position: relative;
+}
+
+.logoImage {
+  max-width: 100%;
+}
+
+.hamburgerButton {
+  z-index: 999;
+  background: none;
+  border: none;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2.6rem 0;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.hamburgerButtonMobile {
+  composes: hamburgerButton;
+  display: none;
+}
+
+.burgerLine {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 2px;
+  height: 18px;
+  margin: 0 2px;
+}
+
+.menuOverlay {
+  z-index: 99;
+  background-color: #1c5ff6;
+  width: 0;
+  height: 100vh;
+  display: none;
+  opacity: 0;
+  position: absolute;
+  inset: 0%;
+  transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+.menuOverlayOpen {
+  width: 75vw;
+  display: flex;
+  opacity: 1;
+}
+
+.menuContent {
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 5% 10% 5% 12%;
+  display: flex;
+}
+
+.menuLink {
+  color: var(--bright-blue, #71f7fc);
+  padding-right: 1rem;
+  font-size: 46px;
+  font-weight: 400;
+  line-height: 56px;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+  display: block;
+}
+
+.menuLink:hover {
+  margin-left: 1rem;
+}
+
+.menuLinkLast {
+  composes: menuLink;
+  margin-bottom: 5%;
+}
+
+.menuSubWrapper {
+  flex-flow: wrap;
+  margin-bottom: 5%;
+  display: flex;
+}
+
+.menuSubLink {
+  color: var(--white, #fff);
+  padding-right: 25px;
+  font-size: 30px;
+  line-height: 40px;
+  text-decoration: none;
+  transition: color 0.4s;
+}
+
+.menuSubLink:hover {
+  color: var(--bright-blue, #71f7fc);
+}
+
+.menuSubLinkActive {
+  composes: menuSubLink;
+  color: var(--bright-blue, #71f7fc);
+}
+
+.socialLinks {
+  z-index: 20;
+  grid-gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+
+.socialIcon {
+  border: 1px solid var(--white, #fff);
+  background-color: transparent;
+  border-radius: 30px;
+  width: 42px;
+  height: 42px;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.socialIcon:hover {
+  background-image: none;
+  transform: scale(1.07);
+}
+
+.socialIconInstagram {
+  background-image: url('https://cdn.prod.website-files.com/678241dab67384084128e2ec/68ee1a0b2645cb1b40129488_instagram.svg');
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: 49%;
+}
+
+.socialIconLinkedin {
+  background-image: url('https://cdn.prod.website-files.com/678241dab67384084128e2ec/68ee1a0af33e413cc4cfd77c_linkedin.svg');
+  background-position: 50% 48%;
+  background-repeat: no-repeat;
+  background-size: 50%;
+}
+
+@media screen and (max-width: 991px) {
+  .menuLink {
+    font-size: 38px;
+    line-height: 48px;
+  }
+
+  .menuContent {
+    grid-gap: 1.5%;
+    padding-left: 15%;
+    padding-right: 5%;
+  }
+
+  .menuSubLink {
+    margin-bottom: 8px;
+    font-size: 26px;
+    line-height: 36px;
+  }
+
+  .menuSubWrapper {
+    margin-bottom: 2.5%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .navWrapper {
+    flex-flow: row;
+    width: 100%;
+    height: 100%;
+  }
+
+  .menuOverlayOpen {
+    width: 100vw;
+  }
+
+  .hamburgerButton {
+    display: none;
+  }
+
+  .hamburgerButtonMobile {
+    order: -1;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    padding: 0 20px;
+    display: flex;
+  }
+
+  .sideNav {
+    width: 100%;
+    height: 56px;
+    inset: 0% 0% auto;
+  }
+
+  .menuContent {
+    padding-left: 10%;
+    padding-right: 8%;
+  }
+
+  .logoWrapper {
+    order: 1;
+    padding: 0 20px;
+  }
+
+  .menuSubLink {
+    padding-right: 15px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .menuLink {
+    font-size: 28px;
+    line-height: 36px;
+  }
+}
