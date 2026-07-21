@@ -1,5 +1,5 @@
 'use client';
-import { ComponentProps } from 'react';
+import { ComponentProps, useEffect, useState } from 'react';
 import { BuilderComponent, builder, useIsPreviewing } from '@builder.io/react';
 import DefaultErrorPage from 'next/error';
 
@@ -16,4 +16,25 @@ export function RenderBuilderContent(props: BuilderProps) {
   }
 
   return <BuilderComponent {...props} />;
+}
+
+interface BuilderPageContentProps {
+  urlPath: string;
+}
+
+export function BuilderPageContent({ urlPath }: BuilderPageContentProps) {
+  const [builderContent, setBuilderContent] = useState(null);
+
+  useEffect(() => {
+    builder
+      .get('page', {
+        userAttributes: {
+          urlPath,
+        },
+      })
+      .promise()
+      .then(setBuilderContent);
+  }, [urlPath]);
+
+  return builderContent ? <RenderBuilderContent content={builderContent} model="page" /> : null;
 }

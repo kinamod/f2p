@@ -104,14 +104,15 @@ For every section with valid HTML (from Step 1), run the full `component-from-ht
 4. Apply the logo from Step 3 to any navbar/header component.
 5. Apply the correct navbar text + background color from Step 4 to the navbar component.
 
-### Dual output — both page files must be updated for every component:
+### Output — all relevant page files must be updated for every component:
 
 | File | What goes here |
 |------|---------------|
-| `app/page.tsx` | A `<section>` block with the component name as `<h2>`, a one-sentence description, and the component rendered with real default props |
+| `app/showcase/page.tsx` | A `<section>` block with the component name as `<h2>`, a one-sentence description, and the component rendered with real default props |
 | `app/home/page.tsx` | The raw component tag only, in correct page order (navbar first, footer last), with no name/description wrappers |
+| `app/page.tsx` | Only for the header/nav or footer component: wired into the homepage's header/footer slot around `<BuilderPageContent urlPath="/" />`. All other components are skipped here — they are Builder-managed content, not hardcoded. |
 
-Do not skip either file. After all components are added, ensure `app/home/page.tsx` assembles into a coherent full-page clone and `app/page.tsx` shows each component in isolation.
+Do not skip the showcase or full-clone file. After all components are added, ensure `app/home/page.tsx` assembles into a coherent full-page clone, `app/showcase/page.tsx` shows each component in isolation, and `app/page.tsx` has exactly one header component and one footer component wired in (replacing any previous ones, never stacking).
 
 ---
 
@@ -125,7 +126,8 @@ Do not skip either file. After all components are added, ensure `app/home/page.t
 | Logo accuracy | Use the real image URL or real SVG. Never a placeholder or text substitute. |
 | Navbar text color | Must match the actual site. Inspect the nav HTML before writing CSS. |
 | Report substitutions | If you replace a missing section with a different one, say so explicitly. |
-| Dual page output | Every component goes into both `app/page.tsx` (showcase) and `app/home/page.tsx` (full clone). |
+| Dual page output | Every component goes into both `app/showcase/page.tsx` (showcase) and `app/home/page.tsx` (full clone). |
+| Homepage wiring | Only the header/nav and footer components are wired into `app/page.tsx` (the homepage), each into its own slot, replacing any previously wired component of that role. Every other component stays out of `app/page.tsx` — it's Builder-managed content. |
 
 ---
 
@@ -150,8 +152,9 @@ Logo source: https://cdn.example.com/logo.svg
 
 Components created: 7
 All registered in builder-registry.ts ✓
-All showcased in app/page.tsx (with name + description per section) ✓
+All showcased in app/showcase/page.tsx (with name + description per section) ✓
 All assembled in app/home/page.tsx (raw, full-page order) ✓
+Homepage (app/page.tsx): NavBar wired into header slot, Footer wired into footer slot ✓
 ```
 
 ---

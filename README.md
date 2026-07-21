@@ -112,11 +112,11 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the component showcase.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the homepage, or [http://localhost:3000/showcase](http://localhost:3000/showcase) to see the component showcase.
 
 **⚠️ Note:** Builder.io's visual editor won't work with localhost. Deploy to a public URL for full functionality.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can start editing the homepage by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 ## 🌐 Quick Start: Cloning a Website
 
@@ -186,11 +186,15 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ```
 ├── app/
-│   ├── page.tsx              # Component showcase (homepage)
+│   ├── page.tsx              # Homepage (/): hardcoded header + Builder Publish content + hardcoded footer
+│   ├── showcase/
+│   │   └── page.tsx          # Component showcase (/showcase)
+│   ├── home/
+│   │   └── page.tsx          # Full static page clone (/home)
 │   └── [...page]/
-│       └── page.tsx          # Catch-all for Builder.io pages
+│       └── page.tsx          # Catch-all for all other Builder.io pages
 ├── components/
-│   └── builder.tsx           # Builder.io rendering component
+│   └── builder.tsx           # Builder.io rendering (RenderBuilderContent, BuilderPageContent)
 ├── builder-registry.ts       # Component registration
 └── .builderrules            # Project conventions
 ```

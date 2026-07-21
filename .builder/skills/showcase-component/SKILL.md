@@ -6,6 +6,8 @@
 
 Add a component to the project's showcase/demo page so it renders visibly alongside the other components. Works generically — detects the showcase page by content rather than assuming a filename.
 
+**Important:** the showcase page lives at `app/showcase/page.tsx` (served at `/showcase`), not at `app/page.tsx`. Root (`/`) is the homepage — hardcoded header + Builder Publish content + hardcoded footer — and must never be treated as the showcase.
+
 ---
 
 ## Step 0 — Find the Showcase Page
@@ -13,7 +15,7 @@ Add a component to the project's showcase/demo page so it renders visibly alongs
 Look for a page file that:
 - Imports and renders multiple components side by side
 - Contains section wrapper elements, component names as headings, and descriptions
-- Is typically `app/page.tsx` but may differ
+- Is typically `app/showcase/page.tsx` but may differ
 
 Read the **entire file** before editing so you match the exact section structure, JSX indentation, and import style used by existing components.
 
@@ -87,3 +89,5 @@ Confirm:
 - Import added ✓
 - New `<section>` block added in logical order ✓
 - Component renders with real prop values ✓
+
+**Note:** if the component is a header/nav or footer, it also needs to be wired into `app/page.tsx`'s homepage layout (header/footer slot) — that is a separate step, not part of showcasing. See the `component-from-html` and `clone-site` skills for that wiring logic.

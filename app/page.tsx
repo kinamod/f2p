@@ -1,14 +1,13 @@
+'use client';
 import '@/builder-registry';
-import styles from './showcase.module.css';
+import { BuilderPageContent } from '@/components/builder';
 
-export default function ShowcasePage() {
+export default function HomePage() {
   return (
-    <main className={styles.showcaseMain}>
-      <div className={styles.emptyState}>
-        <p className={styles.emptyStateText}>
-          No components yet — ask Fusion to clone a site.
-        </p>
-      </div>
-    </main>
+    <>
+      {/* Header slot — filled automatically when a NavBar/Header component is cloned */}
+      <BuilderPageContent urlPath="/" />
+      {/* Footer slot — filled automatically when a Footer component is cloned */}
+    </>
   );
 }

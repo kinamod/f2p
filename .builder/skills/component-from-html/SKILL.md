@@ -98,9 +98,9 @@ Every input must include a `defaultValue` matching the component's defaults.
 
 This step updates **two** files:
 
-### 3a — Component showcase (`app/page.tsx`)
+### 3a — Component showcase (`app/showcase/page.tsx`)
 
-`app/page.tsx` is the component showcase. Each component gets its own `<section>` block so it can be viewed in isolation.
+`app/showcase/page.tsx` (served at `/showcase`) is the component showcase. Each component gets its own `<section>` block so it can be viewed in isolation.
 
 1. Add the import at the top alongside other component imports.
 2. Add a `<section className={styles.showcaseSection}>` block in logical page order (header → hero → content → footer). Append at the bottom if order is unclear.
@@ -121,7 +121,7 @@ Example section shape:
 </section>
 ```
 
-Also ensure the `emptyState` div is removed from `app/page.tsx` once the first component is added — do not leave the "No components yet" message alongside real components.
+Also ensure the `emptyState` div is removed from `app/showcase/page.tsx` once the first component is added — do not leave the "No components yet" message alongside real components.
 
 ### 3b — Full clone page (`app/home/page.tsx`)
 
@@ -146,9 +146,24 @@ export default function ClonedHome() {
 
 ---
 
-## Step 4 — Verify
+## Step 4 — Wire header/footer into the homepage (`app/page.tsx`)
 
-After all three steps:
+`app/page.tsx` (served at `/`) is the homepage: a hardcoded header at the top, Builder Publish content (`<BuilderPageContent urlPath="/" />`) in the middle, and a hardcoded footer at the bottom. It is **not** the showcase and must never receive arbitrary components.
+
+Detection rule, by naming convention:
+- Component name contains `Header` or `NavBar` → header slot
+- Component name contains `Footer` → footer slot
+- Anything else → Builder-managed content; do **not** hardcode it into `app/page.tsx`
+
+Each slot holds exactly one component. If a header or footer is already wired in, **replace** its import/render rather than stacking a second one. Import the component and render it immediately before (header) or after (footer) `<BuilderPageContent urlPath="/" />` — never remove or reorder the Builder content block itself.
+
+If the component is neither a header nor a footer, skip this step entirely.
+
+---
+
+## Step 5 — Verify
+
+After all steps:
 
 1. Check the component file for TypeScript errors:
    - All props in the interface are used in JSX
@@ -159,17 +174,19 @@ After all three steps:
    - Import resolves to the correct file
    - `inputs` array covers every prop
 
-3. Check both page files:
-   - `app/page.tsx`: import added, section block renders the component with real props
+3. Check all page files:
+   - `app/showcase/page.tsx`: import added, section block renders the component with real props
    - `app/home/page.tsx`: import added, raw component rendered in page order
+   - `app/page.tsx`: only updated if the component is a header/nav or footer, wired into the correct slot
 
 4. **Summarise** what was created:
    ```
    ✓ Created: components/{ComponentName}/index.tsx
    ✓ Created: components/{ComponentName}/styles.module.css
    ✓ Registered: builder-registry.ts — N inputs
-   ✓ Showcased: app/page.tsx — section added
+   ✓ Showcased: app/showcase/page.tsx — section added
    ✓ Full page: app/home/page.tsx — component added
+   ✓ Homepage: app/page.tsx — header/footer slot updated (or: not applicable)
    ```
 
 ---
