@@ -1,86 +1,29 @@
+'use client';
+
+import { builder } from '@builder.io/react';
+import { RenderBuilderContent } from '@/components/builder';
 import '@/builder-registry';
-import NavBar from '@/components/NavBar';
-import Hero from '@/components/Hero';
-import FeatureTeaser from '@/components/FeatureTeaser';
-import ProductHighlight from '@/components/ProductHighlight';
-import CustomerTestimonial from '@/components/CustomerTestimonial';
-import Footer from '@/components/Footer';
-import styles from './showcase.module.css';
+import { useEffect, useState } from 'react';
 
-export default function ShowcasePage() {
+builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
+
+export default function Page() {
+  const [builderContent, setBuilderContent] = useState(null);
+
+  useEffect(() => {
+    builder
+      .get('page', {
+        userAttributes: {
+          urlPath: '/',
+        },
+      })
+      .promise()
+      .then(setBuilderContent);
+  }, []);
+
   return (
-    <main className={styles.showcaseMain}>
-      <section className={styles.showcaseSection}>
-        <div className={styles.showcaseSectionHeader}>
-          <h2>Nav Bar</h2>
-          <p className={styles.showcaseSectionDescription}>
-            Fixed side navigation with logo, expandable brand menu, and social links.
-          </p>
-        </div>
-        <div className={styles.showcaseComponentWrapper}>
-          <NavBar />
-        </div>
-      </section>
-
-      <section className={styles.showcaseSection}>
-        <div className={styles.showcaseSectionHeader}>
-          <h2>Hero</h2>
-          <p className={styles.showcaseSectionDescription}>
-            Full-screen video hero with breadcrumb, headline, and enter/scroll controls.
-          </p>
-        </div>
-        <div className={styles.showcaseComponentWrapper}>
-          <Hero />
-        </div>
-      </section>
-
-      <section className={styles.showcaseSection}>
-        <div className={styles.showcaseSectionHeader}>
-          <h2>Feature Teaser</h2>
-          <p className={styles.showcaseSectionDescription}>
-            Two-column teaser grid pairing stacked product videos with copy highlights.
-          </p>
-        </div>
-        <div className={styles.showcaseComponentWrapper}>
-          <FeatureTeaser />
-        </div>
-      </section>
-
-      <section className={styles.showcaseSection}>
-        <div className={styles.showcaseSectionHeader}>
-          <h2>Product Highlight</h2>
-          <p className={styles.showcaseSectionDescription}>
-            Interactive video/copy switcher with a sticky call-to-action button.
-          </p>
-        </div>
-        <div className={styles.showcaseComponentWrapper}>
-          <ProductHighlight />
-        </div>
-      </section>
-
-      <section className={styles.showcaseSection}>
-        <div className={styles.showcaseSectionHeader}>
-          <h2>Customer Testimonial</h2>
-          <p className={styles.showcaseSectionDescription}>
-            Customer quote section paired with a background video.
-          </p>
-        </div>
-        <div className={styles.showcaseComponentWrapper}>
-          <CustomerTestimonial />
-        </div>
-      </section>
-
-      <section className={styles.showcaseSection}>
-        <div className={styles.showcaseSectionHeader}>
-          <h2>Footer</h2>
-          <p className={styles.showcaseSectionDescription}>
-            Site footer with logo, social links, legal disclosures, and back-to-top control.
-          </p>
-        </div>
-        <div className={styles.showcaseComponentWrapper}>
-          <Footer />
-        </div>
-      </section>
-    </main>
+    <div className="min-h-screen bg-white">
+      {builderContent && <RenderBuilderContent content={builderContent} model="page" />}
+    </div>
   );
 }
