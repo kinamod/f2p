@@ -25,16 +25,7 @@ Determine a clear PascalCase name from the HTML's apparent purpose. Examples:
 
 Scan the entire HTML for every `<img src="...">` and CSS `background-image: url(...)`. List them all **before writing any JSX**. These URLs are not optional — they are part of the faithful reproduction requirement.
 
-**Priority order for image URLs:**
-1. **Use the exact `src` from the provided HTML verbatim.** Do not modify, shorten, or replace it.
-2. **If no URL exists in the HTML** (e.g. the image is referenced by class name only), use web search to find the official asset URL from the brand's own website.
-3. **If no URL can be found**, stop and ask the user to provide the image file or URL before continuing.
-
-**What is NEVER acceptable:**
-- A `<span>` or styled text in place of a logo image
-- An SVG drawn from scratch approximating the logo shape
-- A placeholder (`via.placeholder.com`, coloured div, empty `src=""`)
-- Guessing a URL without verifying it resolves correctly
+Follow the `create-component` skill's image/logo rule for priority order and unacceptable substitutes (no placeholders, no redrawn SVGs, no text standing in for a logo).
 
 ### 0c — Identify props
 Every hardcoded value that should be editable in Builder.io becomes a prop:
@@ -52,45 +43,21 @@ Note any click handlers, toggle state, or browser APIs. These require `'use clie
 
 ## Step 1 — Create the Component
 
-Follow the `create-component` skill rules exactly.
+Follow the `create-component` skill rules exactly (props, CSS module conventions, image/logo rule).
 
-**Converting HTML → JSX:**
+Additional HTML → JSX conversion rules specific to pasted markup:
 - Change `class=` to `className=`
 - Self-close void elements: `<img />`, `<input />`, `<br />`
 - Replace all inline `style="..."` attributes with CSS module classes
 - Convert every hardcoded content value to a `{prop}` expression, using the original value as the default
 - Preserve HTML structure faithfully — do not simplify or reorganise the layout
-
-**CSS Module:**
-- One class per visual element with a descriptive camelCase name
-- Preserve all original CSS property values exactly (colours, sizes, transitions)
-- Use shorthand CSS where applicable (`padding: 10px 15px` not four declarations)
-- Preserve all media queries at the same breakpoints
-
-**Image props:**
 - The `defaultValue` of any image prop must be the exact URL extracted in Step 0b
-- Never leave image `src` as `""` or a placeholder
 
 ---
 
 ## Step 2 — Register with Builder.io
 
-Follow the `register-component` skill rules exactly.
-
-Find the registry file (contains `builder.init(` and `Builder.registerComponent(`), then:
-1. Add the import
-2. Add a `Builder.registerComponent()` call with a fully typed `inputs` array
-
-Type mapping quick reference:
-- Short text → `"string"`
-- Long body text / description → `"longText"`
-- Link URL → `"url"`
-- Image URL → `"file"` with `allowedFileTypes: ["jpeg","png","webp","svg"]`
-- Boolean → `"boolean"`
-- Number → `"number"`
-- Union literals → `"string"` with `enum`
-
-Every input must include a `defaultValue` matching the component's defaults.
+Follow the `register-component` skill rules exactly (find the registry file, map props to input types, append the import + `Builder.registerComponent()` call with a `defaultValue` on every input).
 
 ---
 
@@ -189,15 +156,4 @@ After all steps:
    ✓ Homepage: app/page.tsx — header/footer slot updated (or: not applicable)
    ```
 
----
-
-## Image & Logo Accuracy — Final Checklist
-
-Before submitting any output, verify:
-
-- [ ] Every `<img src>` in the original HTML has been preserved verbatim in the component's prop default
-- [ ] No logo has been replaced with text, an SVG approximation, or a placeholder
-- [ ] Every image URL actually appears in the generated component file
-- [ ] The showcase renders the component with real image URLs, not empty strings
-
-If any item on this checklist is unchecked, fix it before reporting completion.
+5. Confirm every `<img src>` from the original HTML is preserved verbatim in the component's prop default and actually appears in the generated file — fix before reporting completion if not.

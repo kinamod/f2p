@@ -116,21 +116,6 @@ Do not skip the showcase or full-clone file. After all components are added, ens
 
 ---
 
-## Rules — never break these
-
-| Rule | Detail |
-|------|--------|
-| No generic templates | Every component must come from real extracted HTML. If extraction fails, skip or substitute with another real section. |
-| No invented layouts | Do not design a layout from scratch. If you have no HTML for a section, you have no component for that section. |
-| CTA color from site | Read the actual button color. Do not default to blue, red, or any assumed color. |
-| Logo accuracy | Use the real image URL or real SVG. Never a placeholder or text substitute. |
-| Navbar text color | Must match the actual site. Inspect the nav HTML before writing CSS. |
-| Report substitutions | If you replace a missing section with a different one, say so explicitly. |
-| Dual page output | Every component goes into both `app/showcase/page.tsx` (showcase) and `app/home/page.tsx` (full clone). |
-| Homepage wiring | Only the header/nav and footer components are wired into `app/page.tsx` (the homepage), each into its own slot, replacing any previously wired component of that role. Every other component stays out of `app/page.tsx` — it's Builder-managed content. |
-
----
-
 ## Output summary format
 
 After all components are built:

@@ -70,16 +70,7 @@ If the existing sections use different class names, use those instead — never 
 
 ## Step 4 — Image & Logo Rule (CRITICAL)
 
-When rendering the component in the showcase, if it accepts image props, always pass **real image URLs** as props — never empty strings or placeholder images. Use the same default value specified in the component's prop interface.
-
-```tsx
-// CORRECT — real image URL
-<MyHero imageUrl="https://example.com/real-image.webp" />
-
-// WRONG — placeholder
-<MyHero imageUrl="" />
-<MyHero imageUrl="https://via.placeholder.com/800x400" />
-```
+If the component accepts image props, pass the same **real image URLs** used as its defaults — never empty strings or placeholders (e.g. `via.placeholder.com`). See `create-component`'s image/logo rule for the full policy.
 
 ---
 
