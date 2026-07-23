@@ -11,7 +11,7 @@
 
 .navWrapper {
   z-index: 99;
-  background-color: #1c5ff6;
+  background-color: var(--blue, #1c5ff6);
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
@@ -60,7 +60,7 @@
 
 .menuOverlay {
   z-index: 99;
-  background-color: #1c5ff6;
+  background-color: var(--blue, #1c5ff6);
   width: 0;
   height: 100vh;
   display: none;

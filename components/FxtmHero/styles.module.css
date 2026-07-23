@@ -11,7 +11,7 @@
   align-items: flex-end;
   width: 100%;
   height: 100%;
-  background-color: #1d2036;
+  background-color: var(--blue, #1d2036);
   display: flex;
   position: absolute;
   overflow: hidden;
