@@ -6,6 +6,10 @@ import FeatureTeaser from "./components/FeatureTeaser";
 import ProductHighlight from "./components/ProductHighlight";
 import CustomerTestimonial from "./components/CustomerTestimonial";
 import Footer from "./components/Footer";
+import FxtmHero from "./components/FxtmHero";
+import PulseHero from "./components/PulseHero";
+import PipWorldHero from "./components/PipWorldHero";
+import ExinityConnectHero from "./components/ExinityConnectHero";
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
@@ -65,6 +69,107 @@ Builder.registerComponent(Hero, {
       defaultValue:
         "https://cdn.prod.website-files.com/678241dab67384084128e2ec/67ae14d27a27d860f5adad4e_nemo-hero-transcode.webm",
     },
+    { name: "enterHref", type: "string", defaultValue: "#section-2" },
+  ],
+});
+
+const heroVideoInputs = (posterUrl: string, mp4Url: string, webmUrl: string) => [
+  {
+    name: "posterUrl",
+    type: "file",
+    allowedFileTypes: ["jpeg", "png", "webp", "svg"],
+    defaultValue: posterUrl,
+  },
+  {
+    name: "videoMp4Url",
+    type: "file",
+    allowedFileTypes: ["mp4"],
+    defaultValue: mp4Url,
+  },
+  {
+    name: "videoWebmUrl",
+    type: "file",
+    allowedFileTypes: ["webm"],
+    defaultValue: webmUrl,
+  },
+];
+
+Builder.registerComponent(FxtmHero, {
+  name: "FxtmHero",
+  inputs: [
+    { name: "breadcrumbLabel", type: "string", defaultValue: "BRANDS" },
+    { name: "breadcrumbHref", type: "url", defaultValue: "/brand" },
+    { name: "currentLabel", type: "string", defaultValue: "FXTM" },
+    {
+      name: "heading",
+      type: "longText",
+      defaultValue: "FXTM: giving traders more",
+    },
+    ...heroVideoInputs(
+      "https://cdn.prod.website-files.com/678241dab67384084128e2ec/67aa792a254ca261a6638ec2_fxtm-hero-poster-00001.jpg",
+      "https://cdn.prod.website-files.com/678241dab67384084128e2ec/67aa792a254ca261a6638ec2_fxtm-hero-transcode.mp4",
+      "https://cdn.prod.website-files.com/678241dab67384084128e2ec/67aa792a254ca261a6638ec2_fxtm-hero-transcode.webm"
+    ),
+    { name: "enterHref", type: "string", defaultValue: "#section-2" },
+  ],
+});
+
+Builder.registerComponent(PulseHero, {
+  name: "PulseHero",
+  inputs: [
+    { name: "breadcrumbLabel", type: "string", defaultValue: "BRANDS" },
+    { name: "breadcrumbHref", type: "url", defaultValue: "/brand" },
+    { name: "currentLabel", type: "string", defaultValue: "PULSE" },
+    {
+      name: "heading",
+      type: "longText",
+      defaultValue: "Pulse. It makes the markets fun. (And makes a market for us)",
+    },
+    ...heroVideoInputs(
+      "https://cdn.prod.website-files.com/678241dab67384084128e2ec/67ab68bd6d868e68553065d1_pulse-hero-desktop-poster-00001.jpg",
+      "https://cdn.prod.website-files.com/678241dab67384084128e2ec/67ab68bd6d868e68553065d1_pulse-hero-desktop-transcode.mp4",
+      "https://cdn.prod.website-files.com/678241dab67384084128e2ec/67ab68bd6d868e68553065d1_pulse-hero-desktop-transcode.webm"
+    ),
+    { name: "enterHref", type: "string", defaultValue: "#section-2" },
+  ],
+});
+
+Builder.registerComponent(PipWorldHero, {
+  name: "PipWorldHero",
+  inputs: [
+    { name: "breadcrumbLabel", type: "string", defaultValue: "BRANDS" },
+    { name: "breadcrumbHref", type: "url", defaultValue: "/brand" },
+    { name: "currentLabel", type: "string", defaultValue: "PIP WORLD" },
+    {
+      name: "heading",
+      type: "longText",
+      defaultValue: "How a virtual world is building real financial skill",
+    },
+    ...heroVideoInputs(
+      "https://cdn.prod.website-files.com/678241dab67384084128e2ec/679ce2b99b55ed1cdc366fb6_PiP-hero-poster-00001.jpg",
+      "https://cdn.prod.website-files.com/678241dab67384084128e2ec/679ce2b99b55ed1cdc366fb6_PiP-hero-transcode.mp4",
+      "https://cdn.prod.website-files.com/678241dab67384084128e2ec/679ce2b99b55ed1cdc366fb6_PiP-hero-transcode.webm"
+    ),
+    { name: "enterHref", type: "string", defaultValue: "#section-2" },
+  ],
+});
+
+Builder.registerComponent(ExinityConnectHero, {
+  name: "ExinityConnectHero",
+  inputs: [
+    { name: "breadcrumbLabel", type: "string", defaultValue: "BRANDS" },
+    { name: "breadcrumbHref", type: "url", defaultValue: "/brand" },
+    { name: "currentLabel", type: "string", defaultValue: "EXINITY CONNECT" },
+    {
+      name: "heading",
+      type: "longText",
+      defaultValue: "Exinity Connect. Connecting brokers with exceptional liquidity",
+    },
+    ...heroVideoInputs(
+      "https://cdn.prod.website-files.com/678241dab67384084128e2ec/67ab6d3cd28d710a7151b235_connect-hero-desktop-poster-00001.jpg",
+      "https://cdn.prod.website-files.com/678241dab67384084128e2ec/67ab6d3cd28d710a7151b235_connect-hero-desktop-transcode.mp4",
+      "https://cdn.prod.website-files.com/678241dab67384084128e2ec/67ab6d3cd28d710a7151b235_connect-hero-desktop-transcode.webm"
+    ),
     { name: "enterHref", type: "string", defaultValue: "#section-2" },
   ],
 });

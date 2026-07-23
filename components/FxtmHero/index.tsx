@@ -1,0 +1,56 @@
+import styles from './styles.module.css';
+
+interface FxtmHeroProps {
+  breadcrumbLabel?: string;
+  breadcrumbHref?: string;
+  currentLabel?: string;
+  heading?: string;
+  posterUrl?: string;
+  videoMp4Url?: string;
+  videoWebmUrl?: string;
+  enterHref?: string;
+}
+
+export default function FxtmHero({
+  breadcrumbLabel = 'BRANDS',
+  breadcrumbHref = '/brand',
+  currentLabel = 'FXTM',
+  heading = 'FXTM: giving traders more',
+  posterUrl = 'https://cdn.prod.website-files.com/678241dab67384084128e2ec/67aa792a254ca261a6638ec2_fxtm-hero-poster-00001.jpg',
+  videoMp4Url = 'https://cdn.prod.website-files.com/678241dab67384084128e2ec/67aa792a254ca261a6638ec2_fxtm-hero-transcode.mp4',
+  videoWebmUrl = 'https://cdn.prod.website-files.com/678241dab67384084128e2ec/67aa792a254ca261a6638ec2_fxtm-hero-transcode.webm',
+  enterHref = '#section-2',
+}: FxtmHeroProps) {
+  return (
+    <section className={styles.heroSection}>
+      <div className={styles.heroWrapper}>
+        <div className={styles.breadcrumb}>
+          <a href={breadcrumbHref} className={styles.breadcrumbLink}>
+            {breadcrumbLabel}
+          </a>
+          <div className={styles.breadcrumbDivider}>l</div>
+          <div className={styles.breadcrumbLink}>{currentLabel}</div>
+        </div>
+        <video className={styles.heroVideo} autoPlay muted playsInline poster={posterUrl}>
+          <source src={videoMp4Url} type="video/mp4" />
+          <source src={videoWebmUrl} type="video/webm" />
+        </video>
+        <div className={styles.coverPage}>
+          <div className={styles.coverContent}>
+            <div className={styles.headingContainer}>
+              <h1 className={styles.heading}>{heading}</h1>
+            </div>
+            <div className={styles.controlsContainer}>
+              <a href={enterHref} className={styles.enterButton}>
+                ENTER
+              </a>
+              <a href="#" className={styles.scrollButton}>
+                SCROLL
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
