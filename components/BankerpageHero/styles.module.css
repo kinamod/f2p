@@ -1,0 +1,151 @@
+.hero {
+  position: relative;
+  font-family: "Averta PE", sans-serif;
+  overflow: hidden;
+}
+
+.backgroundWrap {
+  position: absolute;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+}
+
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.backgroundGradient {
+  position: absolute;
+  inset: 0;
+  bottom: 0;
+  height: 50%;
+  top: auto;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6) 0%, rgba(135, 135, 135, 0) 100%);
+}
+
+.content {
+  position: relative;
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 32px 24px 32px;
+}
+
+.headshotWrap {
+  margin-top: 32px;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 16px solid rgba(248, 250, 252, 0.35);
+  overflow: hidden;
+}
+
+.headshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.firstName {
+  color: #ffffff;
+  font-family: "Playfair Display", serif;
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: -1.2px;
+  line-height: 1.1;
+  margin: 16px 0 0;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fullName {
+  color: #ffffff;
+  font-family: "Playfair Display", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.jobTitle,
+.nmls,
+.licensedIn {
+  color: #ffffff;
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin: 16px 0 0;
+  padding-left: 8px;
+  border-left: 1px solid #ffffff;
+  list-style: none;
+}
+
+.contactLink {
+  color: #ffffff;
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.calendlyItem {
+  display: flex;
+  align-items: center;
+}
+
+.calendlyLink {
+  color: #ffffff;
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  margin-right: 12px;
+  text-decoration: none;
+}
+
+.calendlyIcon {
+  width: 24px;
+  height: 24px;
+}
+
+@media (min-width: 768px) {
+  .content {
+    padding: 48px 48px;
+  }
+
+  .headshotWrap {
+    width: 200px;
+    height: 200px;
+  }
+
+  .firstName {
+    font-size: 120px;
+    line-height: 1;
+  }
+
+  .contactList {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .firstName {
+    font-size: 160px;
+    line-height: 1.1;
+  }
+}
