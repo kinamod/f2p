@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { builder, useIsPreviewing } from '@builder.io/react';
 import DefaultErrorPage from 'next/error';
 import MortgageBankerTemplate from '@/components/MortgageBankerTemplate';
+import NavBar from '@/components/NavBar';
+import Footer from '@/components/Footer';
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
@@ -33,7 +35,13 @@ export function MortgageBankerContent({ urlPath }: MortgageBankerContentProps) {
   }
 
   if (!content && !isPreviewing) {
-    return <DefaultErrorPage statusCode={404} />;
+    return (
+      <>
+        <NavBar />
+        <DefaultErrorPage statusCode={404} />
+        <Footer />
+      </>
+    );
   }
 
   const data = content?.data || {};
@@ -45,22 +53,26 @@ export function MortgageBankerContent({ urlPath }: MortgageBankerContentProps) {
     .filter(Boolean);
 
   return (
-    <MortgageBankerTemplate
-      fullName={data.fullName}
-      headshot={data.headshot}
-      jobTitle={data.jobTitle}
-      city={data.city}
-      state={data.state}
-      licensedStates={licensedStates}
-      specialisms={specialisms}
-      phone={data.phone}
-      email={data.email}
-      nmlsNumber={data.nmlsNumber}
-      applyNowUrl={data.applyNowUrl}
-      hablaEspanol={data.hablaEspanol}
-      testimonialQuote={data.testimonialQuote}
-      testimonialAuthor={data.testimonialAuthor}
-      bio={data.bio}
-    />
+    <>
+      <NavBar />
+      <MortgageBankerTemplate
+        fullName={data.fullName}
+        headshot={data.headshot}
+        jobTitle={data.jobTitle}
+        city={data.city}
+        state={data.state}
+        licensedStates={licensedStates}
+        specialisms={specialisms}
+        phone={data.phone}
+        email={data.email}
+        nmlsNumber={data.nmlsNumber}
+        applyNowUrl={data.applyNowUrl}
+        hablaEspanol={data.hablaEspanol}
+        testimonialQuote={data.testimonialQuote}
+        testimonialAuthor={data.testimonialAuthor}
+        bio={data.bio}
+      />
+      <Footer />
+    </>
   );
 }
