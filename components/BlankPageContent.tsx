@@ -1,4 +1,5 @@
 'use client';
+import '@/builder-registry';
 import { useEffect, useState } from 'react';
 import { BuilderComponent, builder, useIsPreviewing } from '@builder.io/react';
 import DefaultErrorPage from 'next/error';
