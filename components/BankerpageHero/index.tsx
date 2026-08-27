@@ -16,7 +16,7 @@ interface BankerpageHeroProps {
 }
 
 export default function BankerpageHero({
-  backgroundImageUrl = 'https://www.atlanticbay.com/static/a72d221cb1f62744aedaa4dd70899d0c/cdfab/hero-default.webp',
+  backgroundImageUrl = 'https://www.bhg.com/thmb/H9VV9JNnKl-H1faFXnPlQfNprYw=/1799x0/filters:no_upscale():strip_icc()/white-modern-house-curved-patio-archway-c0a4a3b3-aa51b24d14d0464ea15d36e05aa85ac9.jpg',
   headshotUrl = 'https://images.ctfassets.net/n1no4gieqp7s/3pCD1YRDttPnoKjQ8KZWnJ/23c4de9537651adc67cc632d3691e353/terence-guess-headshot.jpg?w=400&h=400&q=90&fm=webp',
   headshotAlt = 'Atlantic Bay Sr. Certified Mortgage Advisor Terence Guess, NMLS #1400129',
   firstName = 'Terence',
