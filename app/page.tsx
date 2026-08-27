@@ -1,13 +1,15 @@
 'use client';
 import '@/builder-registry';
 import { BuilderPageContent } from '@/components/builder';
+import NavBar from '@/components/NavBar';
+import Footer from '@/components/Footer';
 
 export default function HomePage() {
   return (
     <>
-      {/* Header slot — filled automatically when a NavBar/Header component is cloned */}
+      <NavBar />
       <BuilderPageContent urlPath="/" />
-      {/* Footer slot — filled automatically when a Footer component is cloned */}
+      <Footer />
     </>
   );
 }
