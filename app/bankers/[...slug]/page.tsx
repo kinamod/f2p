@@ -8,6 +8,10 @@ interface BankerPageParams {
   params: Promise<{ slug: string[] }>;
 }
 
+function getSlugFromParams(slug: string[] | undefined) {
+  return slug?.[slug.length - 1] || '';
+}
+
 async function getBankerContent(urlPath: string) {
   return builder
     .get('mortgage-banker', {
@@ -18,7 +22,8 @@ async function getBankerContent(urlPath: string) {
 
 export async function generateMetadata({ params }: BankerPageParams) {
   const { slug } = await params;
-  const urlPath = '/bankers/' + (slug?.join('/') || '');
+  const bankerSlug = getSlugFromParams(slug);
+  const urlPath = `/bankers/${bankerSlug}`;
   const content = await getBankerContent(urlPath);
 
   if (!content) {
@@ -38,7 +43,8 @@ export async function generateMetadata({ params }: BankerPageParams) {
 
 export default async function MortgageBankerPage({ params }: BankerPageParams) {
   const { slug } = await params;
-  const urlPath = '/bankers/' + (slug?.join('/') || '');
+  const bankerSlug = getSlugFromParams(slug);
+  const urlPath = `/bankers/${bankerSlug}`;
   const content = await getBankerContent(urlPath);
 
   if (!content) {
@@ -49,6 +55,9 @@ export default async function MortgageBankerPage({ params }: BankerPageParams) {
   const licensedStates: string[] = (data.licensedStates || [])
     .map((entry: { state?: string }) => entry?.state)
     .filter(Boolean);
+  const specialisms: string[] = (data.specialisms || [])
+    .map((entry: { specialism?: string }) => entry?.specialism)
+    .filter(Boolean);
 
   return (
     <MortgageBankerTemplate
@@ -58,6 +67,7 @@ export default async function MortgageBankerPage({ params }: BankerPageParams) {
       city={data.city}
       state={data.state}
       licensedStates={licensedStates}
+      specialisms={specialisms}
       phone={data.phone}
       email={data.email}
       nmlsNumber={data.nmlsNumber}

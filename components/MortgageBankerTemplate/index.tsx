@@ -7,6 +7,7 @@ interface MortgageBankerTemplateProps {
   city?: string;
   state?: string;
   licensedStates?: string[];
+  specialisms?: string[];
   phone?: string;
   email?: string;
   nmlsNumber?: string;
@@ -24,6 +25,7 @@ export default function MortgageBankerTemplate({
   city = '',
   state = '',
   licensedStates = [],
+  specialisms = [],
   phone = '',
   email = '',
   nmlsNumber = '',
@@ -54,6 +56,16 @@ export default function MortgageBankerTemplate({
               {licensedStates.map((licensedState) => (
                 <span key={licensedState} className={styles.stateBadge}>
                   Licensed in {licensedState}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {specialisms.length > 0 && (
+            <div className={styles.badgeRow}>
+              {specialisms.map((specialism) => (
+                <span key={specialism} className={styles.specialismBadge}>
+                  {specialism}
                 </span>
               ))}
             </div>
