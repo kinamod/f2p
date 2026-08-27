@@ -1,6 +1,5 @@
 import { builder } from '@builder.io/sdk';
-import { notFound } from 'next/navigation';
-import MortgageBankerTemplate from '@/components/MortgageBankerTemplate';
+import { MortgageBankerContent } from '@/components/MortgageBankerContent';
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY!);
 
@@ -12,19 +11,16 @@ function getSlugFromParams(slug: string[] | undefined) {
   return slug?.[slug.length - 1] || '';
 }
 
-async function getBankerContent(urlPath: string) {
-  return builder
-    .get('mortgage-banker', {
-      userAttributes: { urlPath },
-    })
-    .promise();
-}
-
 export async function generateMetadata({ params }: BankerPageParams) {
   const { slug } = await params;
   const bankerSlug = getSlugFromParams(slug);
   const urlPath = `/bankers/${bankerSlug}`;
-  const content = await getBankerContent(urlPath);
+
+  const content = await builder
+    .get('mortgage-banker', {
+      userAttributes: { urlPath },
+    })
+    .promise();
 
   if (!content) {
     return {};
@@ -45,37 +41,6 @@ export default async function MortgageBankerPage({ params }: BankerPageParams) {
   const { slug } = await params;
   const bankerSlug = getSlugFromParams(slug);
   const urlPath = `/bankers/${bankerSlug}`;
-  const content = await getBankerContent(urlPath);
 
-  if (!content) {
-    notFound();
-  }
-
-  const data = content.data || {};
-  const licensedStates: string[] = (data.licensedStates || [])
-    .map((entry: { state?: string }) => entry?.state)
-    .filter(Boolean);
-  const specialisms: string[] = (data.specialisms || [])
-    .map((entry: { specialism?: string }) => entry?.specialism)
-    .filter(Boolean);
-
-  return (
-    <MortgageBankerTemplate
-      fullName={data.fullName}
-      headshot={data.headshot}
-      jobTitle={data.jobTitle}
-      city={data.city}
-      state={data.state}
-      licensedStates={licensedStates}
-      specialisms={specialisms}
-      phone={data.phone}
-      email={data.email}
-      nmlsNumber={data.nmlsNumber}
-      applyNowUrl={data.applyNowUrl}
-      hablaEspanol={data.hablaEspanol}
-      testimonialQuote={data.testimonialQuote}
-      testimonialAuthor={data.testimonialAuthor}
-      bio={data.bio}
-    />
-  );
+  return <MortgageBankerContent urlPath={urlPath} />;
 }
